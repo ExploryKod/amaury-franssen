@@ -21,6 +21,10 @@ const LangSwitcher: React.FC = () => {
     { country: 'Español', code: 'es' },
   ]
 
+  const currentLanguage = pathname && pathname.split('/').length > 1 
+    ? options.find(lang => lang.code === pathname.split('/')[1])
+    : null
+
   return (
     <div className='flex items-center justify-center'>
       <div className='relative'>
@@ -31,8 +35,8 @@ const LangSwitcher: React.FC = () => {
           onBlur={() => setIsOptionsExpanded(false)}
         >
           <span className='ml-2'>
-            {pathname && pathname.split('/').length > 1  && options.find(lang => lang.code === pathname.split('/')[1]) ?
-          capitalize(options.find(lang => lang.code === pathname.split('/')[1]).country) : ""}</span>
+          {currentLanguage ? capitalize(currentLanguage.country) : "Français"}
+          </span>
           <FiGlobe />
         </Button>
         {isOptionsExpanded && (

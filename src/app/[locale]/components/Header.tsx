@@ -20,9 +20,9 @@ export const Header: FC<Props> = ({ locale }) => {
   const [menuOpenClass, setMenuOpenClass] = useState<string>("");
 
   const navLinks = [
-    { href: "#about", label: "Mon parcours" },
-    { href: "#skills", label: "Mes compétences" },
-    { href: "#projects", label: "Mes projets" },
+    { href: "#about", label: 'Mon_parcours' },
+    { href: "#skills", label: 'Mes_compétences' },
+    { href: "#projects", label: 'Mes_projets' },
   ];
 
   const ToggleBurgerMenu = () => {
@@ -62,7 +62,7 @@ export const Header: FC<Props> = ({ locale }) => {
                     hover:before:w-[50%] before:-bottom-2 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 
                     after:absolute after:bg-primary after:origin-center after:h-[2px] after:w-0 hover:after:w-[50%] after:-bottom-2 after:right-[50%]"
                   >
-                    {item.label}
+                    {t(item.label)}
                   </a>
                 </li>
               ))}
@@ -100,7 +100,7 @@ export const Header: FC<Props> = ({ locale }) => {
                     href={item.href}
                     className="leading-normal text-lg text-slate-gray"
                   >
-                    {item.label}
+                    {t(item.label)}
                   </a>
                 </li>
               ))}
