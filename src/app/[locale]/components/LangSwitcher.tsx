@@ -16,26 +16,23 @@ const LangSwitcher: React.FC = () => {
 
   const [isOptionsExpanded, setIsOptionsExpanded] = useState(false)
   const options: Option[] = [
-    { country: 'English', code: 'en' }, // Native name is the same
-    { country: 'Deutsch', code: 'de' },
+    { country: 'English', code: 'en' }, 
     { country: 'Français', code: 'fr' },
     { country: 'Español', code: 'es' },
-    { country: 'Русский', code: 'ru' },
-    { country: '日本語', code: 'ja' },
-    { country: 'العربية', code: 'ar' },
-    { country: 'فارسی', code: 'fa' }
   ]
 
   return (
     <div className='flex items-center justify-center'>
       <div className='relative'>
         <Button
-          className='text-destructive inline-flex w-full items-center justify-between gap-3'
-          size='small'
+          className='rounded-full text-destructive inline-flex w-full items-center justify-between gap-3'
+          size='medium'
           onClick={() => setIsOptionsExpanded(!isOptionsExpanded)}
           onBlur={() => setIsOptionsExpanded(false)}
         >
-          Language
+          <span className='ml-2'>
+            {pathname && pathname.split('/').length > 1  && options.find(lang => lang.code === pathname.split('/')[1]) ?
+          capitalize(options.find(lang => lang.code === pathname.split('/')[1]).country) : ""}</span>
           <FiGlobe />
         </Button>
         {isOptionsExpanded && (

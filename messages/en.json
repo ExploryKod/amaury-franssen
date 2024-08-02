@@ -5,10 +5,11 @@
   "Theme": "Theme",
   "Welcome": "Welcome",
   "my_name": "I'm Amaury Franssen,",
-  "an_enthousiast_web_developper": "an enthousiast web developper",
-  "intro_description": "Lorem ipsum dolor sit amet, consectetur",
-  "intro_cv_btn": "Téléchargez mon CV",
-  "intro_left_btn": "Mes compétences",
-  "intro_right_btn": "Mes projets",
-  "Contact_me": "Me contacter"
+  "an_enthousiast_web_developper": "an enthusiast web developer",
+  "intro_description": "After a career in law and management, I decided to become a web developper: the perspective gained from my past experiences, combined with my new training in web development, allows me to participate in the exciting challenges of software development.",
+  "intro_cv_btn": "Download my CV",
+  "intro_left_btn": "My skills",
+  "intro_right_btn": "My projects",
+  "header_end_btn": "Contact me",
+  "Contact_me": "Contact me"
 }

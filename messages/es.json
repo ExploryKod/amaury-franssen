@@ -1,14 +1,15 @@
 {
-  "About": "About",
-  "Support": "Support",
-  "Other": "Other",
-  "Theme": "Theme",
-  "Welcome": "Welcome",
-  "my_name": "I'm Amaury Franssen,",
-  "an_enthousiast_web_developper": "an enthousiast web developper",
-  "intro_description": "Lorem ipsum dolor sit amet, consectetur",
-  "intro_cv_btn": "Téléchargez mon CV",
-  "intro_left_btn": "Mes compétences",
-  "intro_right_btn": "Mes projets",
-  "Contact_me": "Me contacter"
+  "About": "Acerca de",
+  "Support": "Soporte",
+  "Other": "Otro",
+  "Theme": "Tema",
+  "Welcome": "Bienvenido",
+  "my_name": "Soy Amaury Franssen,",
+  "an_enthousiast_web_developper": "un desarrollador web entusiasta",
+  "intro_description": "Después de un recorrido en derecho y gestión, he decidido reconvertirme en el desarrollo web: La perspectiva que me han dado mis experiencias pasadas, combinada con mi nueva formación en desarrollo web, me permite participar en los retos apasionantes del desarrollo de software.",
+  "intro_cv_btn": "Descarga mi CV",
+  "intro_left_btn": "Mis habilidades",
+  "intro_right_btn": "Mis proyectos",
+  "header_end_btn": "Contáctame",
+  "Contact_me": "Contáctame"
 }

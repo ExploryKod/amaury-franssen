@@ -23,7 +23,7 @@ const Button: React.FC<ButtonProps> = ({
 
   const baseStyles = `rounded focus:outline-none focus:shadow-outline ${rounded ? 'rounded-full' : ''}`
   const variantStyles = {
-    primary: 'bg-button text-button-text',
+    primary: 'bg-button text-button-text hover:opacity-75',
     secondary: 'bg-button-secondary text-secondary ring-secondary ring-2'
   }
 
