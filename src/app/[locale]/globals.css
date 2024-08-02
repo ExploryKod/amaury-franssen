@@ -188,3 +188,7 @@
   object-fit: cover;
   aspect-ratio: 1;
 }
+
+#skills:target {
+      padding-top: 96px;
+  }

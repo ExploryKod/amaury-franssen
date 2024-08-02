@@ -18,6 +18,9 @@ const config = {
       }
     },
     extend: {
+      minHeight: {
+        'hero': 'calc(100vh - 96px)',
+      },
       backgroundImage: {
         'span-bg': 'var(--span-bg)'
       },
