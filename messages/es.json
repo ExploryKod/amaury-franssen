@@ -8,11 +8,14 @@
   "Theme": "Tema",
   "Welcome": "Bienvenido",
   "my_name": "Soy Amaury Franssen,",
-  "an_enthousiast_web_developper": "un desarrollador web entusiasta",
-  "intro_description": "Después de un recorrido en derecho y gestión, he decidido reconvertirme en el desarrollo web: La perspectiva que me han dado mis experiencias pasadas, combinada con mi nueva formación en desarrollo web, me permite participar en los retos apasionantes del desarrollo de software.",
+  "an_enthousiast_web_developper": "un desarrollador web apasionado",
+  "intro_sm_description": "Después de un recorrido en derecho y gestión, he decidido reconvertirme en el desarrollo web: La perspectiva que me han dado mis experiencias pasadas, combinada con mi nueva formación en desarrollo web, me permite participar en los retos apasionantes del desarrollo de software.",
+  "intro_description": "Después de un recorrido en derecho y gestión, he decidido reconvertirme en el desarrollo web",
   "intro_cv_btn": "Descarga mi CV",
   "intro_left_btn": "Mis habilidades",
   "intro_right_btn": "Mis proyectos",
   "header_end_btn": "Contáctame",
-  "Contact_me": "Contáctame"
+  "Contact_me": "Contáctame",
+  "credit_title": "Créditos de los iconos",
+  "credit_flags": "Banderas de los países :"
 }

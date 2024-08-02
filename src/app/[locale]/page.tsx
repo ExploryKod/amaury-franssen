@@ -11,7 +11,8 @@ export default function DashboardPage() {
 
   return (
     <div className="px-4">
-      <section id="home" className='min-h-hero mx-auto max-w-screen-2xl w-full flex flex-col items-center justify-center gap-3 md:gap-[50px] md:py-24'>
+      <section id="home" className='min-h-hero mx-auto max-w-screen-2xl w-full 
+                        flex flex-col items-center sm:justify-center gap-3 md:gap-[50px] md:py-24'>
         <div className="mx-auto w-full max-w-[800px] flex flex-col md:flex-row">
           <div className="w-full mb-6 flex items-center md:justify-center">
             <ImageContainer classNames="img-container rounded-full bg-background-secondary">
@@ -66,7 +67,8 @@ export default function DashboardPage() {
         </div>
         <div className='w-full mt-4 flex flex-row items-center justify-center gap-4'>
           <div className="mx-auto max-w-[800px]">
-          <p className="text-2xl text-text-secondary">{t('intro_description')} </p>
+          <p className="hidden sm:block text-2xl text-text-secondary">{t('intro_sm_description')} </p>
+          <p className="sm:hidden text-2xl text-text-secondary">{t('intro_description')} </p>
           </div>
     
         </div>
@@ -89,10 +91,6 @@ export default function DashboardPage() {
             </Button>
           </a>
         </div>
-      </section>
-      <section id="skills" className='bg-background-secondary py-20 max-lg:py-10'>
-     
-        
       </section>
     </div>
   )

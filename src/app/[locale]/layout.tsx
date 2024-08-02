@@ -9,6 +9,7 @@ import { Inter, Rubik, Space_Grotesk } from 'next/font/google'
 import NextTopLoader from 'nextjs-toploader'
 import { Header } from '@/src/app/[locale]/components/Header'
 import './globals.css'
+import { Footer } from './components/Footer'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -43,7 +44,7 @@ export default function RootLayout({
       className={`${space_grotesk.variable} ${rubik.variable} scroll-smooth`}
       suppressHydrationWarning
     >
-      <body>
+      <body className="flex flex-col">
         <ThemeProvider
           enableSystem
           attribute='class'
@@ -76,6 +77,7 @@ export default function RootLayout({
             />
             <Header locale={locale} />
             <main className='pt-[96px] mx-auto max-w-screen-2xl'>{children}</main>
+            <Footer locale={locale} />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
