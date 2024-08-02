@@ -10,7 +10,7 @@ const customMiddleware: CustomMiddleware = async req => {
 
 const intlMiddleware = createMiddleware({
   locales,
-  defaultLocale: 'en',
+  defaultLocale: 'fr',
   localePrefix
 })
 
@@ -22,5 +22,5 @@ export default async function middleware(
 }
 
 export const config = {
-  matcher: ['/', '/(fr|en|ja|de|ru|es|fa|ar)/:path*']
+  matcher: ['/', '/(fr|en|es)/:path*']
 }

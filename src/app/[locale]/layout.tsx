@@ -7,7 +7,7 @@ import {
 } from 'next-intl'
 import { Inter, Rubik, Space_Grotesk } from 'next/font/google'
 import NextTopLoader from 'nextjs-toploader'
-import { Header } from './components/Header'
+import { Header } from '@/src/app/[locale]/components/Header'
 import './globals.css'
 
 const inter = Inter({
@@ -35,6 +35,7 @@ export default function RootLayout({
   params: { locale: string }
 }) {
   const messages = useMessages()
+  
   return (
     <html
       lang={locale}
