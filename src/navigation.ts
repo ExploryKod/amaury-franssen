@@ -1,6 +1,9 @@
 'use client'
-import {createLocalizedPathnamesNavigation } from 'next-intl/navigation'
-import {Pathnames, LocalePrefix} from 'next-intl/routing';
+import {
+  createLocalizedPathnamesNavigation,
+  Pathnames
+} from 'next-intl/navigation';
+//import {Pathnames, LocalePrefix} from 'next-intl/routing';
 
 export const defaultLocale = 'en' as const;
 export const locales = ['en', 'fr'] as const;
