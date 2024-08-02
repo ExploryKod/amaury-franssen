@@ -1,13 +1,18 @@
 'use client'
 import {createLocalizedPathnamesNavigation } from 'next-intl/navigation'
-import { Pathnames } from 'next-intl/routing'
-import { locales } from './i18n'
+import {Pathnames, LocalePrefix} from 'next-intl/routing';
 
-export const localePrefix = 'always'
+export const defaultLocale = 'en' as const;
+export const locales = ['en', 'fr'] as const;
 
-export const pathnames = {
+export const localePrefix: LocalePrefix<typeof locales> = 'always';
+
+export const pathnames: Pathnames<typeof locales> = {
   '/': '/',
-  '/about': '/about'
+  '/about': {
+    en: '/about',
+    fr: '/a-propos'
+  }
 } satisfies Pathnames<typeof locales>
 
 export const { Link, redirect, usePathname, useRouter, getPathname } =
