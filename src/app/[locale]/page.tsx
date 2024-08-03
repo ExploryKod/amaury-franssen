@@ -5,9 +5,37 @@ import profilePic from '@/public/avatar_me.png'
 import ImageContainer from './components/ImageContainer'
 import GithubIcon from '@/src/app/icons/github'
 import LinkedinIcon from '@/src/app/icons/linkedin'
+
+import JavaScriptImg from '/public/skills/javascript.svg'
+import ReactImg from '/public/skills/react.svg'
+import { ReactNode } from 'react'
+
+type Skill = {
+  id?: string
+  text: string
+  description?: string
+  image?: ReactNode
+  example?: string
+  category?: string
+  link?: string
+  linkIcon?: React.FC<React.SVGProps<SVGSVGElement>>
+}
  
 export default function DashboardPage() {
   const t = useTranslations('')
+
+  
+
+  const skills: Partial<Skill[]> = [
+    {text: 'JavaScript', image: JavaScriptImg},
+    {text: 'React', image: ReactImg},
+    {text: '', image: ''},
+    {text: '', image: ''},
+    {text: '', image: ''},
+    {text: '', image: ''},
+    {text: '', image: ''},
+    {text: '', image: ''}
+  ]
 
   return (
     <div className="px-4">
@@ -92,6 +120,20 @@ export default function DashboardPage() {
           </a>
         </div>
       </section>
+      <section id="projects" className="my-[24px] mx-auto max-w-screen-2xl w-full  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300">
+    <h2 className="text-xl font-bold mb-2">Projet 1</h2>
+    <p className="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+  <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300">
+    <h2 className="text-xl font-bold mb-2">Projet 2</h2>
+    <p className="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+  <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300">
+    <h2 className="text-xl font-bold mb-2">Projet 3</h2>
+    <p className="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+</section>
     </div>
   )
 }
