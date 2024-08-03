@@ -184,12 +184,30 @@ body {
 
 /* custom css */
 .img-container img {
+  width: 100%;
+}
+
+.img-container-avatar img {
   max-width: 250px;
   background-color: transparent;
   height: 100%;
   width: 100%;
   border-radius: 100%;
+  /* object-fit: cover;
+  aspect-ratio: 1; */
+}
+
+.img-sm {
+  max-width: 250px;
+}
+
+.object-cover img {
   object-fit: cover;
+  aspect-ratio: 1;
+}
+
+.object-contain img {
+  object-fit: contain;
   aspect-ratio: 1;
 }
 

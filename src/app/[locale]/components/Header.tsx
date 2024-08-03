@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl'
 import { Dispatch, FC, SetStateAction, useState } from 'react'
 import Image from 'next/image'
 import ImageContainer from './ImageContainer'
-import brand from '@/public/brand_bgno.png'
+import brand from '@/public/corporate/brand_bgno.webp'
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 import GithubIcon from '../../icons/github'
