@@ -39,8 +39,8 @@ export const Header: FC<Props> = ({ locale }) => {
     return (
         <>
         <header className="h-[96px] fixed top-0 p-4 z-10 w-full bg-background">
-          <nav className="mx-auto max-w-screen-2xl flex justify-between items-center max-container">
-            <a href="/" className="text-3xl font-bold">
+          <nav className="mx-auto max-w-screen-2xl flex justify-end gap-4 items-center max-container">
+            <a href="/" className="grow text-3xl font-bold">
                 <Image
                   src={brand}
                   alt="Amaury Franssen"
@@ -51,9 +51,9 @@ export const Header: FC<Props> = ({ locale }) => {
           <div className="lg:hidden">
             <LangSwitcher />
           </div>
-            <ul className="flex-1 flex justify-center items-center gap-16 max-lg:hidden">
+            <ul className="me-5 flex-1 flex justify-end items-center gap-16 max-lg:hidden">
               {navLinks.map((item) => (
-                <li key={item.label}>
+                <li key={item.label} className="whitespace-nowrap">
                   <a
                     href={item.href}
                     className="relative text-button hover:text-primary cursor-pointer transition-all 
@@ -68,7 +68,7 @@ export const Header: FC<Props> = ({ locale }) => {
               ))}
             </ul>
          
-            <div className="flex gap-2 text-lg font-medium max-lg:hidden wide:mr-24">
+            <div className="flex justify-end gap-2 text-lg font-medium max-lg:hidden wide:mr-24">
               <LangSwitcher />
               <a href="#contact"><Button rounded size='medium'>{t('header_end_btn')}</Button></a>
             </div>

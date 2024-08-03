@@ -178,6 +178,10 @@
   }
 }
 
+body {
+  overflow-y: hidden;
+}
+
 /* custom css */
 .img-container img {
   max-width: 250px;
@@ -189,6 +193,6 @@
   aspect-ratio: 1;
 }
 
-#skills:target {
+#skills:target, #contacts:target, #projects:target {
       padding-top: 96px;
   }

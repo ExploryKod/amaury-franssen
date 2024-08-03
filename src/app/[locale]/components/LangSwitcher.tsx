@@ -39,7 +39,7 @@ const LangSwitcher: React.FC = () => {
           onClick={() => setIsOptionsExpanded(!isOptionsExpanded)}
           onBlur={() => setIsOptionsExpanded(false)}
         >
-          <span className='ml-2 hidden sm:inline'>
+          <span className='ml-2 hidden lg:inline'>
           {currentLanguage ? capitalize(currentLanguage.country) : "Français"}
           </span>
           {currentLanguage ?    <Image
@@ -75,7 +75,7 @@ const LangSwitcher: React.FC = () => {
                       }`}
                     >
                       <Image width={20} height={20} src={lang.flag} alt={lang.country} />
-                      <span className={`hidden sm:inline`}>{capitalize(lang.country)}</span>
+                      <span className={`hidden lg:inline`}>{capitalize(lang.country)}</span>
                     </button>
                   </Link>
                 )
