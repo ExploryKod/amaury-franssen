@@ -14,7 +14,7 @@ export default function DashboardPage() {
       <section id="home" className='min-h-hero mx-auto max-w-screen-2xl w-full 
                         flex flex-col items-center sm:justify-center gap-3 md:gap-[50px] md:py-24'>
         <div className="mx-auto w-full max-w-[800px] flex flex-col md:flex-row">
-          <div className="w-full mb-6 flex items-center md:justify-center">
+          <div className="w-full mb-6 flex items-center md:justify-start">
             <ImageContainer classNames="img-container rounded-full bg-background-secondary">
               <Image
                 src={profilePic}
