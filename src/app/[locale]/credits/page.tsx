@@ -15,9 +15,9 @@ export default function Credits() {
                     <li> <a className="underline hover:primary" href="https://www.flaticon.com/free-icons/uk-flag" title="uk flag icons">Uk flag icons created by Freepik - Flaticon</a></li>
                     <li><a className="underline hover:primary"  href="https://www.flaticon.com/free-icons/france" title="france icons">France icons created by Freepik - Flaticon</a></li>
                     <li><a className="underline hover:primary" href="https://www.flaticon.com/free-icons/spain" title="spain icons">Spain icons created by amoghdesign - Flaticon</a></li>
-                    <h2 className="my-5 text-2xl font-bold" >{t('credit_flags')}</h2>
+                    {/* <h2 className="my-5 text-2xl font-bold" >{t('credit_flags')}</h2>
                     <li></li>
-                    <li></li>
+                    <li></li> */}
                 </ul>
             </div>
         </section>

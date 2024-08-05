@@ -17,5 +17,14 @@
   "header_end_btn": "Contact me",
   "Contact_me": "Contact me",
   "credit_title": "Credits",
-  "credit_flags": "Flags icons :"
+  "footer_link_credits": "Credits",
+  "credit_flags": "Flags icons :",
+  "My_tech_title_first": "Discover",
+  "My_tech_title_middle": "technologies",
+  "My_tech_title_end": "I love and master",
+  "My_tech_intro":"Discover challenges I overcome through using a technology : click on it !",
+  "My_project_title_first":"My",
+  "My_project_title": "projects",
+  "Personnel": "Personal",
+  "Formation": "Trainings"
 }

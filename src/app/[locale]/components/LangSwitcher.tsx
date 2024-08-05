@@ -2,8 +2,8 @@
 import { capitalize } from '@/lib/utils'
 import Link from 'next/link'
 import { usePathname, useSelectedLayoutSegments } from 'next/navigation'
-import React, { useState } from 'react'
-import Image from 'next/image'
+import React, { ReactNode, useState } from 'react'
+import Image, { type StaticImageData } from 'next/image'
 import en from '/public/flags/en.webp'
 import fr from '/public/flags/fr.webp'
 import es from '/public/flags/es.webp'
@@ -14,7 +14,7 @@ const LangSwitcher: React.FC = () => {
   interface Option {
     country: string
     code: string
-    flag: any
+    flag: StaticImageData
   }
   const pathname = usePathname()
   const urlSegments = useSelectedLayoutSegments()

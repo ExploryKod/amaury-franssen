@@ -17,5 +17,14 @@
   "header_end_btn": "Contáctame",
   "Contact_me": "Contáctame",
   "credit_title": "Créditos de los iconos",
-  "credit_flags": "Banderas de los países :"
+  "credit_flags": "Banderas de los países :",
+  "footer_link_credits": "Créditos",
+  "My_tech_title_first": "Descubre",
+  "My_tech_title_middle": "las tecnologías",
+  "My_tech_title_end": "que más me gustan y dominas",
+  "My_tech_intro":"Descubra mis casos de uso por tecnología : clic en ellos.",
+  "My_project_title_first":"Mis",
+  "My_project_title": "proyectos",
+  "Personnel": "Personal",
+  "Formation": "Formación"
 }

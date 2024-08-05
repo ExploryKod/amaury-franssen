@@ -76,7 +76,7 @@ export default function RootLayout({
               showSpinner={false}
             />
             <Header locale={locale} />
-            <main className='pt-[96px] mx-auto max-w-screen-2xl'>{children}</main>
+            <main className='relative pt-[96px] mx-auto max-w-screen-2xl'>{children}</main>
             <Footer locale={locale} />
           </NextIntlClientProvider>
         </ThemeProvider>
