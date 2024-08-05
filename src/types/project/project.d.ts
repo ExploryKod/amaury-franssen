@@ -17,4 +17,5 @@ type Project = {
   pageUrl?: string
   linkIcon?: React.FC<React.SVGProps<SVGSVGElement>>
   title: string
+  year?: string
 } 
