@@ -21,7 +21,7 @@ return (
 
     <div className="mx-auto max-w-[800px] w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
 
-        {projects.map((project) => {
+        {projects?.map((project) => {
         return project?.image ? (
 
         <div key={project.id} className="relative cursor-pointer bg-white rounded-lg 
