@@ -40,7 +40,9 @@ const config = {
         dropdownHover: 'var(--dropdown-hover)',
         buttonSecondary: 'var(--button-secondary)'
       },
-
+      boxShadow: {
+        'secondary-blue': '0 7.4px 0 rgba(149, 127, 165, 0.7)', 
+      },
       fontFamily: {
         sans: ['var(--font-space-grotesk)', 'var(--rubik)']
       },

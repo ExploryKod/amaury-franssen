@@ -4,8 +4,8 @@ import { useTranslations } from 'next-intl'
 import { Dispatch, FC, SetStateAction, useState } from 'react'
 import Image from 'next/image'
 import brand from '@/public/corporate/brand_bgno.webp'
-import LangSwitcher from './LangSwitcher'
-import Button from './Button';
+import LangSwitcher from '../LangSwitcher'
+import Button from '../Button';
 interface Props {
   locale: string
 }
@@ -35,9 +35,9 @@ export const Header: FC<Props> = ({ locale }) => {
 
     return (
         <>
-        <header className="z-max h-[96px] fixed top-0 p-4 w-full bg-background">
-          <nav className="mx-auto max-w-screen-2xl flex justify-end gap-4 items-center max-container">
-            <a href="/" className="grow text-3xl font-bold">
+        <header className="top-0 z-max fixed border-1 bg-background p-4 border border-background-secondary w-full h-[96px]">
+          <nav className="flex justify-end items-center gap-4 mx-auto max-w-screen-2xl max-container">
+            <a href="/" className="font-bold text-3xl max-xl:grow">
                 <Image
                   src={brand}
                   alt="Amaury Franssen"
@@ -48,16 +48,12 @@ export const Header: FC<Props> = ({ locale }) => {
           <div className="lg:hidden">
             <LangSwitcher />
           </div>
-            <ul className="me-5 flex-1 flex justify-end items-center gap-16 max-lg:hidden">
+            <ul className="flex flex-1 justify-end xl:justify-center items-center gap-16 max-lg:hidden me-5">
               {navLinks.map((item) => (
                 <li key={item.label} className="whitespace-nowrap">
                   <a
                     href={item.href}
-                    className="relative text-button hover:text-primary cursor-pointer transition-all 
-                    ease-in-out before:transition-[width] before:ease-in-out before:duration-700 
-                    before:absolute before:bg-primary before:origin-center before:h-[2px] before:w-0 
-                    hover:before:w-[50%] before:-bottom-2 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 
-                    after:absolute after:bg-primary after:origin-center after:h-[2px] after:w-0 hover:after:w-[50%] after:-bottom-2 after:right-[50%]"
+                    className="relative after:right-[50%] before:-bottom-2 after:-bottom-2 before:left-[50%] before:absolute after:absolute before:bg-primary after:bg-primary before:w-0 hover:before:w-[50%] after:w-0 hover:after:w-[50%] before:h-[2px] after:h-[2px] text-button hover:text-primary before:origin-center after:origin-center transition-all before:transition-[width] after:transition-[width] before:duration-700 cursor-pointer ease-in-out before:ease-in-out after:ease-in-out after:duration-700"
                   >
                     {t(item.label)}
                   </a>
@@ -65,7 +61,7 @@ export const Header: FC<Props> = ({ locale }) => {
               ))}
             </ul>
          
-            <div className="flex justify-end gap-2 text-lg font-medium max-lg:hidden wide:mr-24">
+            <div className="flex justify-end gap-2 max-lg:hidden wide:mr-24 font-medium text-lg">
               <LangSwitcher />
               <a href={`/${locale}/#contact`}><Button rounded size='medium'>{t('header_end_btn')}</Button></a>
             </div>
@@ -76,12 +72,7 @@ export const Header: FC<Props> = ({ locale }) => {
               onClick={ToggleBurgerMenu}
             >
                    <div
-                  className="
-                  w-10 h-[6px] bg-button rounded-full transition-all duration-150 
-                  before:content-[''] before:absolute before:w-10 before:h-[6px] before:bg-button before:rounded-full 
-                  before:-translate-y-4 before:transition-all before:duration-150 
-                  after:content-[''] after:absolute after:w-10 after:h-[6px] after:bg-button 
-                  after:rounded-full after:translate-y-4 after:transition-all after:duration-150"
+                  className="before:absolute after:absolute before:content-[''] after:content-[''] bg-button before:bg-button after:bg-button rounded-full before:rounded-full after:rounded-full w-10 before:w-10 after:w-10 h-[6px] before:h-[6px] after:h-[6px] transition-all before:transition-all after:transition-all before:-translate-y-4 after:translate-y-4 duration-150 before:duration-150 after:duration-150"
                   >
                   </div>
             </div>
@@ -94,12 +85,12 @@ export const Header: FC<Props> = ({ locale }) => {
             <nav className={`h-full transition-translate duration-300 delay-100 ${isMenuOpen  ? 
                           "pt-[96px] bg-background-secondary translate-y-0 opacity-1 event-auto" : 
                           "-translate-y-[100%] opacity-0 event-none"}`}>
-              <ul className="lg:hidden flex flex-col h-full px-5 py-5 gap-5">
+              <ul className="flex flex-col gap-5 lg:hidden px-5 py-5 h-full">
                 {navLinks.map((item) => (
                   <li key={item.label}>
                     <a
                       href={item.href}
-                      className="leading-normal text-lg text-slate-gray"
+                      className="text-lg text-slate-gray leading-normal"
                     >
                       {t(item.label)}
                     </a>
@@ -107,8 +98,8 @@ export const Header: FC<Props> = ({ locale }) => {
                 ))}
                 <li className="mt-5">
                 <a
-                      href={"#contact"}
-                      className="leading-normal text-lg text-slate-gray"
+                      href={"mailto:amauryfranssen@gmail.com"}
+                      className="text-lg text-slate-gray leading-normal"
                     >
                       <Button rounded size='medium'>{t('header_end_btn')}</Button>
                     </a>

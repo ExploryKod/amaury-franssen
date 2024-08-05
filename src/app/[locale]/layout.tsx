@@ -7,9 +7,9 @@ import {
 } from 'next-intl'
 import { Inter, Rubik, Space_Grotesk } from 'next/font/google'
 import NextTopLoader from 'nextjs-toploader'
-import { Header } from '@/src/app/[locale]/components/Header'
+import { Header } from '@/src/app/[locale]/components/layouts/Header'
 import './globals.css'
-import { Footer } from './components/Footer'
+import { Footer } from './components/layouts/Footer'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -36,7 +36,7 @@ export default function RootLayout({
   params: { locale: string }
 }) {
   const messages = useMessages()
-  
+
   return (
     <html
       lang={locale}
@@ -64,6 +64,7 @@ export default function RootLayout({
             locale={locale}
             messages={messages as AbstractIntlMessages}
           >
+         
             <NextTopLoader
               initialPosition={0.08}
               crawlSpeed={200}
@@ -75,9 +76,9 @@ export default function RootLayout({
               color='var(--primary)'
               showSpinner={false}
             />
-            <Header locale={locale} />
-            <main className='relative pt-[96px] mx-auto max-w-screen-2xl'>{children}</main>
-            <Footer locale={locale} />
+              <Header locale={locale} />
+              <main className='relative mx-auto pt-[96px] max-w-screen-2xl'>{children}</main>
+              <Footer locale={locale} />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

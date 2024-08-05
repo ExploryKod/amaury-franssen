@@ -8,7 +8,7 @@
     --secondary: #097fa5;
     --background: #ededed;
     --background-secondary: #c8dde3;
-    --button: #097fa5;
+    --button: #097ea5;
     --button-text: #fff;
     --text-secondary: #3c3c3c;
     --dropdown: #e0f4ff;
@@ -210,6 +210,22 @@
     @apply -z-20
   }
 
+  /* button effects */
+
+  .btn-swipe {
+    @apply relative overflow-hidden transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full 
+           before:w-0 before:bg-background-secondary before:transition-all before:duration-500 hover:text-white hover:before:left-0 
+           hover:before:w-full hover:before:bg-button
+  }
+
+  .btn-swipe span {
+    @apply relative z-10
+  }
+
+  .card-shadow {
+     @apply border-[hsl(195,90%,34%)] bg-white shadow-[hsl(195,90%,34%)_7.4px_7.4px_0px] p-[25px] border border-solid rounded-lg 
+  }
+
   /* Image Corners : use it with next/image Image component to reach the img tag */
   .img-rounded-lg img {
     @apply rounded-lg
@@ -262,9 +278,6 @@ body {
   border-radius: 100%;
 }
 
-.img-container-avatar img:hover {
-  transform: scale(1.05);
-}
 
 .img-sm img {
   max-width: 250px;
@@ -283,6 +296,8 @@ body {
 #skills:target, #contacts:target, #projects:target {
   padding-top: 96px;
 }
+
+
 
 
 /* @media screen and (min-width: 1024px) {

@@ -9,7 +9,7 @@
   "Welcome": "Bienvenido",
   "my_name": "Soy Amaury Franssen,",
   "an_enthousiast_web_developper": "un desarrollador web apasionado",
-  "intro_sm_description": "Después de un recorrido en derecho y gestión, he decidido reconvertirme en el desarrollo web: La perspectiva que me han dado mis experiencias pasadas, combinada con mi nueva formación en desarrollo web, me permite participar en los retos apasionantes del desarrollo de software.",
+  "intro_sm_description": "Después de un recorrido en derecho y gestión, he decidido reconvertirme en el desarrollo web: La perspectiva dado mi pasada experiencias, combinada con mi nueva formación, me permite participar en los retos apasionantes del desarrollo de software.",
   "intro_description": "Después de un recorrido en derecho y gestión, he decidido reconvertirme en el desarrollo web",
   "intro_cv_btn": "Descarga mi CV",
   "intro_left_btn": "Mis habilidades",
@@ -26,5 +26,6 @@
   "My_project_title_first":"Mis",
   "My_project_title": "proyectos",
   "Personnel": "Personal",
-  "Formation": "Formación"
+  "Formation": "Formación",
+  "Défi Frontend mentor": "Frontend Mentor"
 }

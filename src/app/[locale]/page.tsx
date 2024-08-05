@@ -7,18 +7,31 @@ import { Projects } from './components/Projects'
 import GithubIcon from '@/src/app/icons/github'
 import LinkedinIcon from '@/src/app/icons/linkedin-official.webp'
 import { SKills } from './components/Skills'
- 
-export default function DashboardPage() {
+import { Modal } from "@/src/app/[locale]/components/modals/Modal" 
+import Link from 'next/link'
+
+type SearchParamProps = {
+  searchParams: Record<string, string> | null | undefined;
+};
+
+export default function DashboardPage({
+  params,
+  searchParams,
+}:{
+  params: { slug: string }
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   const t = useTranslations('')
+  const show = searchParams?.show;
 
   return (
     <div className="px-4">
-      <section id="home" className='relative min-h-hero mx-auto max-w-screen-2xl w-full 
-                        flex flex-col items-center sm:justify-center gap-3 md:gap-[50px] md:py-24'>
+      {show && <Modal />}
+      <section id="home" className='relative flex flex-col sm:justify-center items-center gap-3 md:gap-[50px] mx-auto md:py-24 w-full max-w-screen-2xl min-h-hero'>
             <div>
             </div>
-        <div className="mx-auto w-full max-w-[800px] flex flex-col md:flex-row">
-          <div className="w-full mb-6 flex items-center md:justify-start">
+        <div className="flex md:flex-row flex-col mx-auto w-full max-w-[800px]">
+          <div className="flex md:justify-start items-center mb-6 w-full">
             <ImageContainer  key={""} classNames="img-container-avatar rounded-full bg-background-secondary">
               <Image
                 src={profilePic}
@@ -29,17 +42,17 @@ export default function DashboardPage() {
             </ImageContainer>
           </div>
        
-          <div className="w-full flex flex-col justify-between">
-            <h1 className='text-2xl md:text-3xl font-extrabold leading-tight'>
+          <div className="flex flex-col justify-between w-full">
+            <h1 className='font-extrabold text-2xl md:text-3xl leading-tight'>
               {t('Welcome')}{' '}
               <br />
-              <span className='bg-span-bg bg-clip-text text-transparent'>
+              <span className='bg-clip-text bg-span-bg text-transparent'>
                 {t('my_name')}{' '}
               </span>
               <br />
               {t('an_enthousiast_web_developper')}
             </h1>
-            <div className='w-full my-6 flex flex-col gap-5 sm:flex-row'>
+            <div className='flex sm:flex-row flex-col gap-5 my-6 w-full'>
                   <a
                   href='/CV_amaury_franssen_2024_v2.pdf'
                   target='_blank'
@@ -54,7 +67,7 @@ export default function DashboardPage() {
                   href='https://github.com/ExploryKod'
                   target='_blank'
                 >
-                  <div className="flex flex-col items-center justify-center h-[50px] w-[50px] hover:opacity-75">
+                  <div className="flex flex-col justify-center items-center hover:opacity-75 w-[50px] h-[50px]">
                     <GithubIcon />
                   </div>
                 </a>
@@ -62,7 +75,7 @@ export default function DashboardPage() {
                   href='https://www.linkedin.com/in/amaury-franssen/'
                   target='_blank'
                 >
-                  <div className="flex flex-col items-center justify-center hover:opacity-75">
+                  <div className="flex flex-col justify-center items-center hover:opacity-75">
                         <Image
                           height={56}
                           width={56}
@@ -77,15 +90,15 @@ export default function DashboardPage() {
             </div>
           </div>
         </div>
-        <div className='w-full mt-4 flex flex-row items-center justify-center gap-4'>
-          <div className="mx-auto max-w-[800px]">
-          <p className="hidden sm:block text-2xl text-text-secondary">{t('intro_sm_description')} </p>
+        <div className='flex flex-row justify-center items-center gap-4 mt-4 w-full max-w-[800px]'>
+          <div className="mx-auto">
+          <p className="sm:block hidden text-2xl text-text-secondary">{t('intro_sm_description')} </p>
           <p className="sm:hidden text-2xl text-text-secondary">{t('intro_description')} </p>
           </div>
     
         </div>
 
-        <div className='w-full mt-4 flex flex-row items-center justify-center gap-4'>
+        <div className='flex flex-row justify-center items-center gap-4 mt-4 w-full max-w-[800px]'>
           <a
             href='#skills'
           >
@@ -97,30 +110,29 @@ export default function DashboardPage() {
             href='#projects'
           >
             <Button rounded size='large' variant='secondary'>
-              {t('intro_right_btn')}
+              <span>{t('intro_right_btn')}</span>
             </Button>
           </a>
         </div>
       </section>
 
-      <section id="skills" className="relative py-24 mx-auto max-w-screen-2xl w-full">
-        <div className="mt-5 mb-[60px] mx-auto max-w-[800px] w-full">
-            <h2 className='my-5 text-3xl md:text-4xl font-extrabold leading-tight'>
+      <section id="skills" className="relative mx-auto py-24 w-full max-w-screen-2xl">
+        <div className="mx-auto mt-5 mb-[60px] w-full">
+            <h2 className='my-5 font-extrabold text-3xl md:text-4xl leading-tight'>
               {t('My_tech_title_first')}{' '}
-              <span className='bg-span-bg bg-clip-text text-transparent'>
+              <span className='bg-clip-text bg-span-bg text-transparent'>
                 {t('My_tech_title_middle')}{' '}
               </span>
               {t('My_tech_title_end')}{' '}
             </h2>
             {/* <p className="mt-5 text-lg italic">{t('My_tech_intro')}</p> */}
         </div>
-  
 
         <SKills />
 
       </section>
 
-      <section id="projects" className="relative my-[24px] mx-auto max-w-screen-2xl w-full">
+      <section id="projects" className="relative mx-auto my-[24px] w-full max-w-screen-2xl">
         <Projects />
       </section>
     </div>

@@ -9,7 +9,6 @@ import drupalImg from '/public/skills/drupal.svg'
 import flaskImg from '/public/skills/flask.svg'
 import laravel from '/public/skills/laravel.svg'
 import mysql from '/public/skills/mysql.svg'
-import phpImg from '/public/skills/php.svg'
 import TypeScriptImg from '/public/skills/typescript-icon.svg'
 import nextImg from '/public/skills/nextjs-icon.svg'
 import tailwindcss from '/public/skills/tailwindcss-icon.svg'
@@ -19,7 +18,7 @@ import GoImg from '/public/skills/go.svg'
 import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 
 export type Skill = {
-  id?: string
+  id: number
   text: string
   description?: string
   image?: string | StaticImport
@@ -30,18 +29,17 @@ export type Skill = {
 }
 
 const skills: Partial<Skill[] | null> = [
-  {text: 'JavaScript', image: JavaScriptImg},
-  {text: 'TypeScript', image: TypeScriptImg},
-  {text: 'React', image: ReactImg},
-  {text: 'NextJs', image: nextImg},
-  {text: 'Tailwindcss', image: tailwindcss},
-  {text: 'Docker', image: dockerImg},
-  {text: 'Wordpress', image: wordpressImg},
-  {text: 'Golang', image: GoImg},
-  {text: 'Flask', image: flaskImg},
-  {text: 'Laravel', image: laravel},
-  {text: 'MySQL', image: mysql},
-  {text: 'PHP', image: phpImg},
+  {id: 1, text: 'TypeScript', image: TypeScriptImg},
+  {id: 2, text: 'React', image: ReactImg},
+  {id: 3, text: 'NextJs', image: nextImg},
+  {id: 4, text: 'Tailwindcss', image: tailwindcss},
+  {id: 5, text: 'Docker', image: dockerImg},
+  {id: 6, text: 'Wordpress', image: wordpressImg},
+  {id: 7, text: 'Golang', image: GoImg},
+  // {id: 8,text: 'Flask', image: flaskImg},
+  {id: 10, text: 'Laravel', image: laravel},
+  {id:11, text: 'MySQL', image: mysql},
+  // {id: 12, text: 'PHP', image: phpImg},
 ] 
 
 
@@ -49,9 +47,12 @@ export const SKills = () => {
   const t = useTranslations('')
 
 return (
-  <div className="mx-auto max-w-[800px] w-full flex gap-x-8  gap-y-4 justify-center items-center flex-wrap">
+  <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 bg-white mx-auto p-[40px] rounded-lg w-full">
     {skills.map((skill) => {
-      return skill?.image ? (<ImageContainer isContain={true} classNames="grow cursor-pointer p-4 bg-white transition duration-300 rounded-lg hover:shadow-md h-[150px] w-[150px] flex flex-col items-center justify-center"><Image
+      return skill?.image ? (<ImageContainer key={skill.id} isContain={true} classNames="
+                          card-shadow cursor-pointer p-4 bg-white 
+                          transition duration-300 rounded-lg hover:shadow-md h-[150px] w-[150px] 
+                          flex flex-col items-center justify-center"><Image
       height={100}
       width={100}
       src={skill.image}

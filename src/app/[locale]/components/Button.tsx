@@ -3,6 +3,7 @@ import React from 'react'
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode
   variant?: 'primary' | 'secondary'
+  hover?: {primary: 'opacity-75' | 'btn-swipe', secondary: 'btn-swipe' | 'opacity-75'}
   size?: 'small' | 'medium' | 'large'
   rounded?: boolean
 }
@@ -10,9 +11,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const Button: React.FC<ButtonProps> = ({
   children,
   variant = 'primary',
+  hover= {primary: 'opacity-75', secondary: 'btn-swipe'},
   size = 'medium',
   rounded = false,
-  className,
+  className = "",
   ...props
 }) => {
   const sizeStyles = {
@@ -23,10 +25,10 @@ const Button: React.FC<ButtonProps> = ({
 
   const baseStyles = `rounded focus:outline-none focus:shadow-outline ${rounded ? 'rounded-full' : ''}`
   const variantStyles = {
-    primary: 'bg-button text-button-text hover:opacity-75',
-    secondary: 'bg-button-secondary text-secondary ring-secondary ring-2'
+    primary: `bg-button text-button-text hover:${hover.primary}`,
+    secondary: `bg-button-secondary text-secondary ring-secondary ring-2 ${hover.secondary}`
   }
-
+  
   const buttonStyles = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`
 
   return (

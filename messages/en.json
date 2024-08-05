@@ -9,7 +9,7 @@
   "Welcome": "Welcome",
   "my_name": "I'm Amaury Franssen,",
   "an_enthousiast_web_developper": "an enthusiast web developer",
-  "intro_sm_description": "After a career in law and management, I decided to become a web developper: the perspective gained from my past experiences, combined with my new training in web development, allows me to participate in the exciting challenges of software development.",
+  "intro_sm_description": "After a career in law and management, I decided to become a web developper: the perspective gained from my past experiences, combined with my new training, allows me to participate in the exciting challenges of software development.",
   "intro_description": "After a career in law and management, I decided to become a web developper",
   "intro_cv_btn": "Download my CV",
   "intro_left_btn": "My skills",
@@ -26,5 +26,6 @@
   "My_project_title_first":"My",
   "My_project_title": "projects",
   "Personnel": "Personal",
-  "Formation": "Trainings"
+  "Formation": "Trainings",
+  "Défi Frontend mentor": "Frontend Mentor challenge"
 }
