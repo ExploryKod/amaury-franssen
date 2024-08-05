@@ -1,7 +1,7 @@
 "use client"
 import { useTranslations } from 'next-intl'
-import { Dispatch, FC, SetStateAction, useState } from 'react'
 import Image from 'next/image'
+import ImageContainer from './ImageContainer'
 import JavaScriptImg from '/public/skills/javaScript.svg'
 import ReactImg from '/public/skills/react.svg'
 import dockerImg from '/public/skills/docker-icon.svg'
@@ -15,11 +15,10 @@ import nextImg from '/public/skills/nextjs-icon.svg'
 import tailwindcss from '/public/skills/tailwindcss-icon.svg'
 import wordpressImg from '/public/skills/wordpress-icon.svg'
 import GoImg from '/public/skills/go.svg'
-import { ReactNode } from 'react'
-import { StaticImport } from 'next/dist/shared/lib/get-img-props'
-import ImageContainer from './ImageContainer'
 
-type Skill = {
+import { StaticImport } from 'next/dist/shared/lib/get-img-props'
+
+export type Skill = {
   id?: string
   text: string
   description?: string
@@ -45,17 +44,14 @@ const skills: Partial<Skill[] | null> = [
   {text: 'PHP', image: phpImg},
 ] 
 
-interface Props {
-    locale: string
-  }
 
-export const SKills: FC<Props> = ({ locale }) => {
+export const SKills = () => {
   const t = useTranslations('')
 
 return (
   <div className="mx-auto max-w-[800px] w-full flex gap-x-8  gap-y-4 justify-center items-center flex-wrap">
     {skills.map((skill) => {
-      return skill?.image ? (<ImageContainer isContain={true} classNames="grow h-[150px] w-[150px] flex flex-col items-center justify-center"><Image
+      return skill?.image ? (<ImageContainer isContain={true} classNames="grow cursor-pointer p-4 bg-white transition duration-300 rounded-lg hover:shadow-md h-[150px] w-[150px] flex flex-col items-center justify-center"><Image
       height={100}
       width={100}
       src={skill.image}

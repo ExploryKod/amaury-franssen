@@ -173,6 +173,77 @@
 }
 
 @layer utilities {
+
+   /* === transversal utilities === */
+
+  /* z-index */
+  
+  .z-max {
+    @apply z-40
+  }
+
+  .z-sub-header {
+    @apply z-30
+  }
+
+  .z-lg {
+    @apply z-20
+  }
+
+  .z-md {
+    @apply z-10
+  }
+
+  .z-sm {
+    @apply z-5
+  }
+
+  .z-floor {
+    @apply z-0
+  }
+
+  .-z-sm {
+    @apply -z-10
+  }
+
+  .-z-md {
+    @apply -z-20
+  }
+
+  /* Image Corners : use it with next/image Image component to reach the img tag */
+  .img-rounded-lg img {
+    @apply rounded-lg
+  }
+
+  .img-rounded-t-lg img {
+    @apply rounded-t-lg
+  }
+
+  .img-rounded-b-lg img {
+    @apply rounded-b-lg
+  }
+
+  .img-rounded-l-lg img {
+    @apply rounded-l-lg
+  }
+
+  .img-rounded-r-lg img {
+    @apply rounded-r-lg
+  }
+
+  .img-full img {
+    @apply w-full h-auto
+  }
+  
+  .img-full-h img {
+    @apply w-auto h-full
+  }
+
+  .img-full-w-h {
+    @apply w-full h-full 
+  }
+
+  /* === Header utilities === */
   .hamburger-toggle {
     @apply [&>div]:h-0 [&>div]:bg-white [&>div]:before:translate-y-0 [&>div]:before:rotate-45 [&>div]:after:translate-y-0 [&>div]:after:-rotate-45;
   }
@@ -183,21 +254,19 @@ body {
 }
 
 /* custom css */
-.img-container img {
-  width: 100%;
-}
-
 .img-container-avatar img {
   max-width: 250px;
   background-color: transparent;
   height: 100%;
   width: 100%;
   border-radius: 100%;
-  /* object-fit: cover;
-  aspect-ratio: 1; */
 }
 
-.img-sm {
+.img-container-avatar img:hover {
+  transform: scale(1.05);
+}
+
+.img-sm img {
   max-width: 250px;
 }
 
@@ -212,5 +281,43 @@ body {
 }
 
 #skills:target, #contacts:target, #projects:target {
-      padding-top: 96px;
+  padding-top: 96px;
+}
+
+
+/* @media screen and (min-width: 1024px) {
+
+  #skills::after {
+    content: "";
+    width: 400px;
+    height: 400px;
+    display: block;
+    z-index: -1;
+    position: absolute;
+    overflow: hidden;
+    top: 340px;
+    right: -100px;
+    background-image: url('../../../public/patterns/bg-pattern-footer-desktop.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transform: rotate(-90deg);
   }
+
+  #skills::before {
+    content: "";
+    width: 500px;
+    height: 500px;
+    display: block;
+    z-index: -1;
+    position: absolute;
+    overflow: hidden;
+    top: 40%;
+    left: -300px;
+    transform: translateY(-40%);
+    background-image: url('../../../public/patterns/form1.svg');
+    filter: opacity(20%);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transform: rotate(180deg);
+  }
+} */
