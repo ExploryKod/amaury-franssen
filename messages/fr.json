@@ -22,11 +22,12 @@
 
   "My_tech_title_first": "Découvrez",
   "My_tech_title_middle": "les technologies",
-  "My_tech_title_end": "que j'aime.",
+  "My_tech_title_end": "que j'aime et utilise tous les jours.",
   "My_tech_intro":"Envie de Découvrir les défis que m'a posé une de ces technologies ? Cliquer sur une icone !",
   "My_project_title_first":"Mes",
   "My_project_title": "projets",
   "Personnel": "Personnel",
   "Formation": "Formation",
-  "Défi Frontend mentor": "Défi Frontend Mentor"
+  "Défi Frontend mentor": "Défi",
+  "Retour": "Retour"
 }

@@ -10,6 +10,7 @@ import NextTopLoader from 'nextjs-toploader'
 import { Header } from '@/src/app/[locale]/components/layouts/Header'
 import './globals.css'
 import { Footer } from './components/layouts/Footer'
+import { BreadCrumbs } from './components/utilities/breadcrumbs/breadcrumbs'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -77,7 +78,11 @@ export default function RootLayout({
               showSpinner={false}
             />
               <Header locale={locale} />
-              <main className='relative mx-auto pt-[96px] max-w-screen-2xl'>{children}</main>
+              <BreadCrumbs withHome locale={locale}> 
+              <main className='relative mx-auto pt-[96px] max-w-screen-2xl'>
+                {children}
+              </main>
+              </BreadCrumbs>
               <Footer locale={locale} />
           </NextIntlClientProvider>
         </ThemeProvider>

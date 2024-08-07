@@ -60,7 +60,9 @@ export const projects: Partial<Project[] | null> = [
         description: '', 
         image: {url: FoodcareFront, alt:" "}, 
         technos: [...foodcarStack],
-        year: "2022"
+        year: "2022",
+        slug: "foodcare",
+        usecases: {javascript: "javascript"}
     },
     {   
         id:2,
@@ -82,7 +84,9 @@ export const projects: Partial<Project[] | null> = [
         description: '', 
         image: {url: ChatTalksFront, alt:" "},  
         technos: [...catStack],
-        year: "2024"
+        year: "2024",
+        slug: "cat-talks",
+        usecases: {typescript: "typescript", websockets: "websockets", golang:"golang"}
     },
     {
         id:4,

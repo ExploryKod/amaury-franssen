@@ -28,11 +28,11 @@ const Button: React.FC<ButtonProps> = ({
     primary: `bg-button text-button-text hover:${hover.primary}`,
     secondary: `bg-button-secondary text-secondary ring-secondary ring-2 ${hover.secondary}`
   }
-  
+
   const buttonStyles = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`
 
   return (
-    <button className={buttonStyles} {...props}>
+    <button className={buttonStyles} {...props} >
       {children}
     </button>
   )

@@ -8,41 +8,46 @@ import GithubIcon from '@/src/app/icons/github'
 import LinkedinIcon from '@/src/app/icons/linkedin-official.webp'
 import { SKills } from './components/Skills'
 import { Modal } from "@/src/app/[locale]/components/modals/Modal" 
-import Link from 'next/link'
 
-type SearchParamProps = {
-  searchParams: Record<string, string> | null | undefined;
-};
+export interface BreakPoints {
+  [key: string]: string;
+}
 
-export default function DashboardPage({
-  params,
+export default function MainPage({
+  params:  { locale },
   searchParams,
 }:{
-  params: { slug: string }
+  params: { slug: string, locale: string },
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   const t = useTranslations('')
   const show = searchParams?.show;
+  
 
+  const heroMaxWidth:BreakPoints = {
+    xl: "1200",
+    base: "800"
+  }
+
+  
   return (
     <div className="px-4">
       {show && <Modal />}
       <section id="home" className='relative flex flex-col sm:justify-center items-center gap-3 md:gap-[50px] mx-auto md:py-24 w-full max-w-screen-2xl min-h-hero'>
-            <div>
-            </div>
-        <div className="flex md:flex-row flex-col mx-auto w-full max-w-[800px]">
+            
+        <div className={`flex md:flex-row flex-col mx-auto w-full max-w-[${heroMaxWidth.base}px] xl:max-w-[${heroMaxWidth.xl}px]`}>
           <div className="flex md:justify-start items-center mb-6 w-full">
-            <ImageContainer  key={""} classNames="img-container-avatar rounded-full bg-background-secondary">
+            <ImageContainer classNames="img-container-avatar object-cover rounded-full bg-background-secondary">
               <Image
                 src={profilePic}
                 alt="Photo de moi"
                 blurDataURL="blur"
-                placeholder="blur" // Optional blur-up while loading
+                placeholder="blur"
               />
             </ImageContainer>
           </div>
        
-          <div className="flex flex-col justify-between w-full">
+          <div className="flex flex-col justify-between xl:justify-center w-full">
             <h1 className='font-extrabold text-2xl md:text-3xl leading-tight'>
               {t('Welcome')}{' '}
               <br />
@@ -90,7 +95,7 @@ export default function DashboardPage({
             </div>
           </div>
         </div>
-        <div className='flex flex-row justify-center items-center gap-4 mt-4 w-full max-w-[800px]'>
+        <div className='flex flex-row justify-center items-center gap-4 mt-4 w-full max-w-[800px] xl:max-w-[1200px]'>
           <div className="mx-auto">
           <p className="sm:block hidden text-2xl text-text-secondary">{t('intro_sm_description')} </p>
           <p className="sm:hidden text-2xl text-text-secondary">{t('intro_description')} </p>
@@ -98,7 +103,7 @@ export default function DashboardPage({
     
         </div>
 
-        <div className='flex flex-row justify-center items-center gap-4 mt-4 w-full max-w-[800px]'>
+        <div className='flex flex-row justify-center items-center gap-4 mt-4 w-full max-w-[800px] xl:max-w-[1200px]'>
           <a
             href='#skills'
           >
@@ -128,7 +133,7 @@ export default function DashboardPage({
             {/* <p className="mt-5 text-lg italic">{t('My_tech_intro')}</p> */}
         </div>
 
-        <SKills />
+        <SKills locale={locale} />
 
       </section>
 

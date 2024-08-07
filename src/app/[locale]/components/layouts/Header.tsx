@@ -6,6 +6,7 @@ import Image from 'next/image'
 import brand from '@/public/corporate/brand_bgno.webp'
 import LangSwitcher from '../LangSwitcher'
 import Button from '../Button';
+
 interface Props {
   locale: string
 }

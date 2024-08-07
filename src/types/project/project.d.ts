@@ -6,7 +6,11 @@ export interface ImageContainer {
     alt?: string
 }
 
-type Project = {
+export interface Usecases {
+ [key: string]: string
+}
+
+export type Project = {
   id?: number
   description?: string
   image?: ImageContainer
@@ -18,4 +22,6 @@ type Project = {
   linkIcon?: React.FC<React.SVGProps<SVGSVGElement>>
   title: string
   year?: string
+  slug?: string
+  usecases?: Usecases
 } 
