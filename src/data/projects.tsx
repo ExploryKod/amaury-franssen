@@ -69,7 +69,7 @@ export const projects: Partial<Project[] | null> = [
         category: 'Personnel', 
         website: "https://anoria.vercel.app", 
         github:"https://github.com/ExploryKod/Anoria", 
-        title:"Anoria City Builder", 
+        title:"City Builder", 
         description: '', 
         image: {url: AnoriaFront, alt:" "},  
         technos: [...anoriaStack],

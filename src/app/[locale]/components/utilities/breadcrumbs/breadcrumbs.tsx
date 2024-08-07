@@ -39,8 +39,11 @@ const BreadcrumbsItem = ({
 const BreadcrumbsContainer = ({
   children,
   separator = '>',
-}: BreadcrumbsContainerProps) => (
-  <nav className="pt-[100px] pb-6 min-h-6">
+}: BreadcrumbsContainerProps) => {
+    const paths = usePathname();
+
+return (
+  <nav className="mt-5 p-4 pt-[100px] min-h-6">
     <ol className="flex items-center space-x-4">
       {Children.map(children, (child, index) => (
         <>
@@ -51,8 +54,8 @@ const BreadcrumbsContainer = ({
         </>
       ))}
     </ol>
-  </nav>
-)
+  </nav>)
+}
 
 export const BreadCrumbs = ({
   children,
@@ -80,7 +83,7 @@ export const BreadCrumbs = ({
   return (
     <>
       <BreadcrumbsContainer>
-        {withHome && <BreadcrumbsItem href="/">Home</BreadcrumbsItem>}
+        {(withHome && paths !== `/${locale}`) && <BreadcrumbsItem href="/">Home</BreadcrumbsItem>}
         {pathItems.filter(item => item.path !== locale).map((item) => (
           <BreadcrumbsItem key={item.path} href={`/${item.path}`}>
             {item.name === 'loading'

@@ -138,7 +138,7 @@ export default function MainPage({
       </section>
 
       <section id="projects" className="relative mx-auto my-[24px] w-full max-w-screen-2xl">
-        <Projects />
+        <Projects locale={locale} />
       </section>
     </div>
   )
