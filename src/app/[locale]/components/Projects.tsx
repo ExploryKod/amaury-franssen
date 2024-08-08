@@ -31,7 +31,7 @@ return (
         return project?.image ? (
        
         <div key={project.id} 
-        onClick={() => router.push(`/${locale}/projects/${project.slug}`)}
+        onClick={() => router.push(`/${locale}/${project.slug}`)}
         className="relative flex flex-col justify-between bg-white shadow-md hover:shadow-lg rounded-lg max-w-[600px] transition duration-300 cursor-pointer group">            
 
             <div className="flex justify-between">

@@ -1,9 +1,6 @@
 "use client"
 import React from 'react'
-
-import { useRouter } from 'next/navigation'
-import Button from '../Button'
-
+import { Button } from '../Button'
 import { useTranslations } from 'next-intl'
 
 interface NotFoundComponentProps {
@@ -30,9 +27,11 @@ const NotFoundWithProps: React.FC<NotFoundComponentProps > = ({
             <h1 className={`font-bold text-2xl text-center text-${color}`}>404</h1>
             <p className={`text-4xl text-center text-${color}`}>{text}</p>
           </div>
-          <div>
-            <a href={`/${locale}/#projects`}>
-              <Button rounded variant={"secondary"} size='medium'>{t('Retour')}</Button>
+          <div className="flex justify-center items-center bg-background-secondary px-4 py-2 rounded-b-lg">
+            <a className="" href={`/${locale}/#projects`}>
+              <Button className="" rounded variant={"secondary"} size='medium'>
+                <span className="before:z-lg">{t('Retour')}</span>
+                </Button>
             </a>
           </div>
         

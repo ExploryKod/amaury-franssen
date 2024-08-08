@@ -1,14 +1,16 @@
 'use client';
 
 import { Children, useState, type ReactNode, useMemo } from 'react';
+import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
+import BreadCrumbIcon from '@/src/app/icons/breacrumbIcon'
 import { BreadCrumbsContext } from './breadcrumbContext';
 import Link from 'next/link';
 import { Spinner } from './spinner';
 
 type BreadcrumbsContainerProps = {
   children: ReactNode;
-  separator?: string | ReactNode;
+  separator?: string | ReactNode | ((props:Object) => JSX.Element);
 }
 
 type BreadcrumbsProps = {
@@ -28,7 +30,7 @@ const BreadcrumbsItem = ({
   ...props
 }: BreadcrumbItemProps) => {
   return (
-    <li {...props}>
+    <li {...props} className="group">
       <Link href={href} passHref>
         {children}
       </Link>
@@ -38,18 +40,18 @@ const BreadcrumbsItem = ({
 
 const BreadcrumbsContainer = ({
   children,
-  separator = '>',
+  separator = BreadCrumbIcon,
 }: BreadcrumbsContainerProps) => {
     const paths = usePathname();
 
 return (
-  <nav className="mt-5 p-4 pt-[100px] min-h-6">
+  <nav className="mx-auto mt-5 p-4 pt-[100px] w-full max-w-screen-2xl min-h-6">
     <ol className="flex items-center space-x-4">
       {Children.map(children, (child, index) => (
         <>
           {child}
           {index < Children.count(children) - 1
-            ? <span>{separator}</span>
+            ? <span><BreadCrumbIcon /></span>
             : null}
         </>
       ))}
@@ -62,6 +64,7 @@ export const BreadCrumbs = ({
   withHome = false,
   locale
 }: BreadcrumbsProps) => {
+  const t = useTranslations('');
   const paths = usePathname();
   const [trailingPath, setTrailingPath] = useState('');
   const context = useMemo(() => ({
@@ -83,12 +86,13 @@ export const BreadCrumbs = ({
   return (
     <>
       <BreadcrumbsContainer>
-        {(withHome && paths !== `/${locale}`) && <BreadcrumbsItem href="/">Home</BreadcrumbsItem>}
+        {(withHome && paths !== `/${locale}`) && <BreadcrumbsItem href="/"><span className="linear-anim-link text-button cursor-pointer linear-color-primary">{t('Home')}</span></BreadcrumbsItem>}
         {pathItems.filter(item => item.path !== locale).map((item) => (
           <BreadcrumbsItem key={item.path} href={`/${item.path}`}>
-            {item.name === 'loading'
+            <span className="linear-anim-link text-button cursor-pointer linear-color-primary">{item.name === 'loading'
               ? <Spinner className="w-4 h-4" />
-              : item.name}
+              : item.name !== 'undefined' ? item.name : "404"}
+            </span>
           </BreadcrumbsItem>
         ))}
       </BreadcrumbsContainer>

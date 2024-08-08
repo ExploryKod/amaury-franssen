@@ -5,10 +5,10 @@
 @layer base {
   :root {
     --primary: #333366;
-    --secondary: #097fa5;
+    --secondary: rgb(9, 127, 165);
     --background: #ededed;
     --background-secondary: #c8dde3;
-    --button: #097ea5;
+    --button: rgb(9, 126, 165);
     --button-text: #fff;
     --text-secondary: #3c3c3c;
     --dropdown: #e0f4ff;
@@ -140,9 +140,53 @@
   }
 }
 
+@layer components {
+
+  /* === BUTTONS === */
+
+  .button-primary {
+    @apply bg-button text-button-text hover:opacity-75;
+  }
+
+  .button-secondary {
+    @apply bg-button-secondary text-secondary ring-secondary ring-1
+  }
+
+  .button-light {
+    @apply bg-button-secondary text-primary hover:opacity-75
+  }
+  
+  .button-light-swipe {
+    @apply bg-button-secondary text-primary btn-swipe
+  }
+}
+
 @layer utilities {
 
+  .btn-swipe {
+    @apply relative overflow-hidden transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full 
+           before:w-0 before:bg-background-secondary before:transition-all before:duration-500 hover:text-white hover:before:left-0 
+           hover:before:w-full hover:before:bg-button
+  }
+
+  .btn-swipe > * {
+    @apply relative z-10
+  }
+
+
    /* === transversal utilities === */
+
+  .linear-anim-link {
+    @apply relative after:right-[50%] before:-bottom-2 after:-bottom-2 before:left-[50%] before:absolute after:absolute before:w-0 hover:before:w-[50%] after:w-0 hover:after:w-[50%] before:h-[2px] after:h-[2px] before:origin-center after:origin-center transition-all before:transition-[width] after:transition-[width] before:duration-700 ease-in-out before:ease-in-out after:ease-in-out after:duration-700
+  } 
+
+  .linear-color-primary {
+    @apply before:bg-primary after:bg-primary hover:text-primary 
+  }
+
+  .linear-color-light {
+    @apply before:bg-white after:bg-white hover:text-white 
+  }
 
   /* z-index */
   
@@ -176,18 +220,6 @@
 
   .-z-md {
     @apply -z-20
-  }
-
-  /* button effects */
-
-  .btn-swipe {
-    @apply relative overflow-hidden transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full 
-           before:w-0 before:bg-background-secondary before:transition-all before:duration-500 hover:text-white hover:before:left-0 
-           hover:before:w-full hover:before:bg-button
-  }
-
-  .btn-swipe span {
-    @apply relative z-10
   }
 
   .card-shadow {
@@ -243,6 +275,8 @@ body {
 
 .hovered-skill img {
   opacity: 1;
+  transition: all 250ms ease-in-out;
+  transform: scale(0.8) translateY(5px)
 } 
 
 .no-hovered-skill img {
@@ -279,10 +313,10 @@ body {
   aspect-ratio: 1;
 }
 
-#skills:target, #contacts:target, #projects:target {
+/* #skills:target, #contacts:target, #projects:target {
   padding-top: 96px;
 }
-
+ */
 
 
 

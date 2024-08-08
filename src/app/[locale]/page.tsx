@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl'
-import Button from './components/Button'
+import {Button} from './components/Button'
 import Image from 'next/image'
 import profilePic from '@/public/corporate/avatar_me.webp'
 import ImageContainer from './components/ImageContainer'
@@ -33,7 +33,7 @@ export default function MainPage({
   return (
     <div className="px-4">
       {show && <Modal />}
-      <section id="home" className='relative flex flex-col sm:justify-center items-center gap-3 md:gap-[50px] mx-auto md:py-24 w-full max-w-screen-2xl min-h-hero'>
+      <section id="home" className='relative flex flex-col sm:justify-center items-center gap-3 md:gap-[50px] mx-auto md:py-18 w-full max-w-screen-2xl min-h-hero'>
             
         <div className={`flex md:flex-row flex-col mx-auto w-full max-w-[${heroMaxWidth.base}px] xl:max-w-[${heroMaxWidth.xl}px]`}>
           <div className="flex md:justify-start items-center mb-6 w-full">
@@ -84,7 +84,7 @@ export default function MainPage({
                         <Image
                           height={56}
                           width={56}
-                          src={LinkedinIcon }
+                          src={LinkedinIcon}
                           alt={"Aller à linkedin"}
                           />
                   </div>
@@ -99,7 +99,7 @@ export default function MainPage({
           <div className="mx-auto">
           <p className="sm:block hidden text-2xl text-text-secondary">{t('intro_sm_description')} </p>
           <p className="sm:hidden text-2xl text-text-secondary">{t('intro_description')} </p>
-          </div>
+        </div>
     
         </div>
 
@@ -121,7 +121,7 @@ export default function MainPage({
         </div>
       </section>
 
-      <section id="skills" className="relative mx-auto py-24 w-full max-w-screen-2xl">
+      <section id="skills" className="relative mx-auto py-[18px] w-full max-w-screen-2xl">
         <div className="mx-auto mt-5 mb-[60px] w-full">
             <h2 className='my-5 font-extrabold text-3xl md:text-4xl leading-tight'>
               {t('My_tech_title_first')}{' '}
@@ -137,7 +137,7 @@ export default function MainPage({
 
       </section>
 
-      <section id="projects" className="relative mx-auto my-[24px] w-full max-w-screen-2xl">
+      <section id="projects" className="relative mx-auto py-[18px] w-full max-w-screen-2xl">
         <Projects locale={locale} />
       </section>
     </div>

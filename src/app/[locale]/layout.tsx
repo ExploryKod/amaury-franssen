@@ -37,6 +37,7 @@ export default function RootLayout({
   params: { locale: string }
 }) {
   const messages = useMessages()
+  
 
   return (
     <html
@@ -79,7 +80,7 @@ export default function RootLayout({
             />
               <Header locale={locale} />
               <BreadCrumbs withHome locale={locale}> 
-              <main className='relative mx-auto pt-[96px] max-w-screen-2xl'>
+              <main className='relative mx-auto max-w-screen-2xl'>
                 {children}
               </main>
               </BreadCrumbs>

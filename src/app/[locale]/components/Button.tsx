@@ -2,35 +2,46 @@ import React from 'react'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode
-  variant?: 'primary' | 'secondary'
-  hover?: {primary: 'opacity-75' | 'btn-swipe', secondary: 'btn-swipe' | 'opacity-75'}
+  variant?: 'primary' | 'secondary' | 'light' | 'lightSwipe'
   size?: 'small' | 'medium' | 'large'
   rounded?: boolean
 }
 
-const Button: React.FC<ButtonProps> = ({
+interface LinkProps extends React.LinkHTMLAttributes<HTMLElement> {
+  children: React.ReactNode
+  variant?: 'primary' | 'secondary' | 'light' | 'lightSwipe'
+  size?: 'small' | 'medium' | 'large'
+  rounded?: boolean
+  url: string
+}
+
+const sizeStyles = {
+  small: 'px-2 py-2 text-sm',
+  medium: 'px-4 py-2 text-base font-semibold',
+  large: 'px-6 py-3 text-lg font-semibold'
+}
+
+const baseStyles = `rounded focus:outline-none focus:shadow-outline`
+const variantStyles = {
+  primary: `button-primary`,
+  secondary: `button-secondary btn-swipe`,
+  light: `button-light`,
+  lightSwipe: "button-light-swipe"
+}
+
+
+
+export const Button: React.FC<ButtonProps> = ({
   children,
   variant = 'primary',
-  hover= {primary: 'opacity-75', secondary: 'btn-swipe'},
   size = 'medium',
   rounded = false,
   className = "",
   ...props
 }) => {
-  const sizeStyles = {
-    small: 'px-2 py-2 text-sm',
-    medium: 'px-4 py-2 text-base font-semibold',
-    large: 'px-6 py-3 text-lg font-semibold'
-  }
 
-  const baseStyles = `rounded focus:outline-none focus:shadow-outline ${rounded ? 'rounded-full' : ''}`
-  const variantStyles = {
-    primary: `bg-button text-button-text hover:${hover.primary}`,
-    secondary: `bg-button-secondary text-secondary ring-secondary ring-2 ${hover.secondary}`
-  }
-
-  const buttonStyles = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`
-
+  const buttonStyles = `${baseStyles} ${rounded ? 'rounded-full' : ''} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`
+  
   return (
     <button className={buttonStyles} {...props} >
       {children}
@@ -38,4 +49,21 @@ const Button: React.FC<ButtonProps> = ({
   )
 }
 
-export default Button
+export const SimpleLink: React.FC<LinkProps> = ({
+  children, 
+  url="#",
+  title="",
+  variant = 'primary',
+  size = 'medium',
+  rounded = false,
+  className = "",
+  ...props
+
+}) => {
+
+  const LinkStyles = `${baseStyles} ${rounded? 'rounded-full' : ''} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`
+
+  return (
+    <a title={title} href={`${url}`} className={LinkStyles} {...props}>{children}</a>
+  )
+}

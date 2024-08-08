@@ -31,7 +31,7 @@ return (
         <div   className="relative group/card"       key={skill.id} 
         onMouseEnter={() => setHoveredSkillId(skill.id.toString())}
         onMouseLeave={() => setHoveredSkillId("uneffect")}>
-                      <Link href={isExample ? `/${locale}/projects/${skill.example && skill.example.slug}/${skill.text.toLowerCase()}`: "/#skills"}>
+                      <Link href={isExample ? `/${locale}/${skill.example && skill.example.slug}/${skill.text.toLowerCase()}`: "/#skills"} target={isExample ? "_blank" : undefined}>
                       
                       <div className={`
                         top-0 right-0 z-lg absolute flex 
@@ -58,7 +58,7 @@ return (
                             placeholder="blur"
                           />
                           <div className={`py-2`}>
-                            <span className="group-hover/card:font-bold text-center text-gray-600 text-sm">{hoveredSkillId === skill.id.toString() && isExample ? 'En savoir plus': skill.text}</span>
+                            <span className="group-hover/card:font-bold text-center text-gray-600 text-xs whitespace-nowrap">{hoveredSkillId === skill.id.toString() && skill.example ? "Voir le cas d'usage": skill.text}</span>
                             </div>
                       </ImageContainer>
                     </Link>
@@ -72,9 +72,10 @@ return (
 
       {selectedSkill && isExample ? 
 
-            (<div className={`w-[400px] flex flex-col gap-4 items-center justify-center`}>
+            (<div className={`mx-auto w-[400px] flex flex-col gap-4 items-center justify-center`}>
               <div className="py-2">
-                <h2 className="text-2xl text-center text-white">{selectedSkill.example && selectedSkill.example.title}</h2>
+                <h1 className="text-3xl text-center text-white">Cas d'usage sélectionné pour {selectedSkill.text}</h1>
+                <h3 className="mt-3 text-2xl text-center text-white">{selectedSkill.example && selectedSkill.example.title}</h3>
               </div>
               <ImageContainer 
                 classNames={` 
@@ -94,7 +95,7 @@ return (
               </div>
             </div>)
       : (
-        <div className={`w-[400px] bg-white rounded-lg transition-all ease-in-out`}> 
+        <div className={`mx-auto w-[400px] bg-white rounded-lg transition-all ease-in-out`}> 
             <div className="flex justify-center items-center mx-auto p-2 max-w-[400px] h-full">
               <p className="text-2xl text-center">{selectedSkill ? "La description du cas d'usage pour cette technologie arrive bientôt." :
               "Découvrez des cas d' usages parmis mes projets en sélectionnant une technologie"}</p>

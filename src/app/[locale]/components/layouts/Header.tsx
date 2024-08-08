@@ -1,26 +1,29 @@
 'use client'
 import { Link } from '@/src/navigation'
 import { useTranslations } from 'next-intl'
-import { Dispatch, FC, SetStateAction, useState } from 'react'
+import { usePathname } from 'next/navigation'
+import { Dispatch, FC, SetStateAction, useState, useEffect } from 'react'
 import Image from 'next/image'
 import brand from '@/public/corporate/brand_bgno.webp'
 import LangSwitcher from '../LangSwitcher'
-import Button from '../Button';
+import { Button } from '../Button';
 
 interface Props {
   locale: string
 }
 export const Header: FC<Props> = ({ locale }) => {
   const t = useTranslations('')
+  const paths = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [menuOpenClass, setMenuOpenClass] = useState<string>("");
+  const [scrolled, setScrolled] = useState<boolean>(true);
 
-  
-
+  // Datas
+  const isHome = paths === `/${locale}`
   const navLinks = [
     // { href: `/${locale}/#about`, label: 'Mon_parcours' },
-    { href: `/${locale}/#skills`, label: 'Mes_compétences' },
-    { href: `/${locale}/#projects`, label: 'Mes_projets' },
+    { href: isHome ? "#skills" : `/${locale}/#skills`, label: 'Mes_compétences' },
+    { href: isHome ? "#projects" : `/${locale}/#projects`, label: 'Mes_projets' },
   ];
 
   const ToggleBurgerMenu = () => {
@@ -34,37 +37,62 @@ export const Header: FC<Props> = ({ locale }) => {
     }
   }
 
+  const scrollHeader = () => { 
+    if (window.scrollY >= 20) {
+      setScrolled(true)
+    } else {
+      setScrolled(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', scrollHeader);
+
+    return () => {
+      window.removeEventListener('scroll', scrollHeader);
+    };
+  }, []);
+
+
+
     return (
         <>
-        <header className="top-0 z-max fixed border-1 bg-background p-4 border border-background-secondary w-full h-[96px]">
-          <nav className="flex justify-end items-center gap-4 mx-auto max-w-screen-2xl max-container">
-            <a href="/" className="font-bold text-3xl max-xl:grow">
+        <header className={`max-[375px]:mb-5  h-[96px] ${scrolled && !isMenuOpen ? "bg-secondary-700" : "bg-background"} transition duration-400 ease-in top-0 z-max fixed p-4 w-full`}>
+          <nav className={`flex justify-between items-center gap-4 mx-auto max-w-screen-2xl max-container`}>
+            <a href="/" className={`px-4 max-[375px]:w-[75%]
+            ${scrolled ? "rounded-lg bg-white hover:opacity-75": "bg-transparent"} font-bold text-3xl`}>
                 <Image
                   src={brand}
                   alt="Amaury Franssen"
                   blurDataURL="blur"
-                  placeholder="blur" // Optional blur-up while loading
+                  placeholder="blur" 
                 />
-          </a>
-          <div className="lg:hidden">
-            <LangSwitcher />
+            </a>
+
+          <div className={`max-xl:grow flex justify-end lg:justify-center`}>
+            <div className="lg:hidden max-[375px]:hidden">
+              <LangSwitcher />
+            </div>
+              <ul className={`justify-end px-16 py-2  ${scrolled ? "bg-secondary rounded-full" : "bg-transparent"} flex xl:justify-center items-center gap-16 max-lg:hidden`}>
+                {navLinks.map((item) => (
+                  <li key={item.label} className={`${scrolled ? "bg-secondary" : "bg-transparent"} whitespace-nowrap`}>
+                    <a
+                      href={item.href}
+                      className={`linear-anim-link ${scrolled ? "text-white":"text-button"} cursor-pointer ${scrolled ? "linear-color-light" : "linear-color-primary"}`}
+                    >
+                      {t(item.label)}
+                    </a>
+                  </li>
+                ))}
+              </ul>
           </div>
-            <ul className="flex flex-1 justify-end xl:justify-center items-center gap-16 max-lg:hidden me-5">
-              {navLinks.map((item) => (
-                <li key={item.label} className="whitespace-nowrap">
-                  <a
-                    href={item.href}
-                    className="relative after:right-[50%] before:-bottom-2 after:-bottom-2 before:left-[50%] before:absolute after:absolute before:bg-primary after:bg-primary before:w-0 hover:before:w-[50%] after:w-0 hover:after:w-[50%] before:h-[2px] after:h-[2px] text-button hover:text-primary before:origin-center after:origin-center transition-all before:transition-[width] after:transition-[width] before:duration-700 cursor-pointer ease-in-out before:ease-in-out after:ease-in-out after:duration-700"
-                  >
-                    {t(item.label)}
-                  </a>
-                </li>
-              ))}
-            </ul>
+    
          
             <div className="flex justify-end gap-2 max-lg:hidden wide:mr-24 font-medium text-lg">
-              <LangSwitcher />
-              <a href={`/${locale}/#contact`}><Button rounded size='medium'>{t('header_end_btn')}</Button></a>
+              <LangSwitcher scrolled={scrolled} />
+              <a href={isHome ? "#contact" : `/${locale}/#contact`}>
+                <Button variant={`${scrolled ? "light" : "primary"}`} rounded size='medium'>{t('header_end_btn')}</Button>
+              </a>
             </div>
           
             <div
@@ -73,11 +101,16 @@ export const Header: FC<Props> = ({ locale }) => {
               onClick={ToggleBurgerMenu}
             >
                    <div
-                  className="before:absolute after:absolute before:content-[''] after:content-[''] bg-button before:bg-button after:bg-button rounded-full before:rounded-full after:rounded-full w-10 before:w-10 after:w-10 h-[6px] before:h-[6px] after:h-[6px] transition-all before:transition-all after:transition-all before:-translate-y-4 after:translate-y-4 duration-150 before:duration-150 after:duration-150"
+                  className={`before:absolute after:absolute before:content-[''] after:content-[''] 
+                    ${scrolled && !isMenuOpen ? "bg-white before:bg-white after:bg-white" : "bg-button before:bg-button after:bg-button"} 
+                    rounded-full before:rounded-full after:rounded-full 
+                    w-10 before:w-10 after:w-10 h-[6px] before:h-[6px] after:h-[6px] transition-all before:transition-all after:transition-all before:-translate-y-4 after:translate-y-4 duration-150 before:duration-150 after:duration-150`}
                   >
                   </div>
+                  
             </div>
           </nav>
+          <LangSwitcher classNames="min-[375px]:hidden my-2 flex justify-center items-center"/>
         </header>
 
         <div className={`ease-in ${isMenuOpen ? 

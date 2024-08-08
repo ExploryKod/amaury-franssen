@@ -33,7 +33,7 @@ const config = {
         'button-text': 'var(--button-text)',
         'text-secondary': 'var(--text-secondary)',
         'background-secondary': 'var(--background-secondary)',
-        secondary: 'var(--secondary)',
+        secondary: {DEFAULT: 'var(--secondary)', '700': 'rgba(9, 127, 165, 0.8)'},
         button: 'var(--button)',
         selected: 'var(--selected)',
         dropdown: 'var(--dropdown)',

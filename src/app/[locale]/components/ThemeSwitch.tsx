@@ -5,7 +5,7 @@ import { useTheme } from 'next-themes'
 import { useEffect, useRef, useState } from 'react'
 import { FiSun } from 'react-icons/fi'
 import { useOnClickOutside } from 'usehooks-ts'
-import Button from './Button'
+import { Button } from './Button'
 
 export default function ThemeSwitch() {
   const t = useTranslations('')
@@ -20,7 +20,7 @@ export default function ThemeSwitch() {
       <Button
         size='small'
         type='button'
-        className='text-destructive inline-flex w-fit min-w-[95px] items-center justify-between gap-3'
+        className='inline-flex justify-between items-center gap-3 w-fit min-w-[95px] text-destructive'
         id='options-menu'
         aria-expanded={isOpen}
         onClick={() => {}}
@@ -35,11 +35,11 @@ export default function ThemeSwitch() {
   }
 
   return (
-    <div ref={ref} className='relative inline-block text-left'>
+    <div ref={ref} className='inline-block relative text-left'>
       <Button
         size='small'
         type='button'
-        className='text-destructive inline-flex w-full min-w-[95px] items-center justify-between gap-3'
+        className='inline-flex justify-between items-center gap-3 w-full min-w-[95px] text-destructive'
         id='options-menu'
         aria-expanded={isOpen}
         onClick={toggleDropdown}
@@ -48,7 +48,7 @@ export default function ThemeSwitch() {
         <FiSun />
       </Button>
       {isOpen && (
-        <div className='absolute right-0 mt-2 w-full origin-top-right rounded-md bg-dropdown shadow-lg'>
+        <div className='right-0 absolute bg-dropdown shadow-lg mt-2 rounded-md w-full origin-top-right'>
           <div
             className='py-1'
             role='menu'

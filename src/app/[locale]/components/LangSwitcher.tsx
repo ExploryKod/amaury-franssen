@@ -8,20 +8,28 @@ import en from '/public/flags/en.webp'
 import fr from '/public/flags/fr.webp'
 import es from '/public/flags/es.webp'
 import { FiGlobe } from 'react-icons/fi'
-import Button from './Button'
+import { Button } from './Button'
 
-const LangSwitcher: React.FC = () => {
-  interface Option {
-    country: string
-    code: string
-    flag: StaticImageData
-  }
+
+interface LangSwitcherProps {
+  scrolled?: boolean
+  classNames?: string
+}
+interface Option {
+  country: string
+  code: string
+  flag: StaticImageData
+}
+
+const LangSwitcher = ({scrolled, classNames="flex justify-center items-center"}: LangSwitcherProps) => {
+ 
   const pathname = usePathname()
   const urlSegments = useSelectedLayoutSegments()
 
   const [isOptionsExpanded, setIsOptionsExpanded] = useState(false)
+
   const options: Option[] = [
-    { country: 'English', code: 'en' , flag: en}, 
+    { country: 'English', code: 'en' , flag: en }, 
     { country: 'Français', code: 'fr', flag: fr },
     { country: 'Español', code: 'es', flag: es },
   ]
@@ -31,15 +39,16 @@ const LangSwitcher: React.FC = () => {
     : null
 
   return (
-    <div className='flex items-center justify-center'>
+    <div className={`${classNames}`}>
       <div className='relative'>
         <Button
-          className='rounded-full text-destructive inline-flex w-full items-center justify-between gap-3'
+          variant={`${scrolled ? "light" : "primary"}`}
+          className='inline-flex justify-between items-center gap-3 rounded-full w-full text-destructive'
           size='medium'
           onClick={() => setIsOptionsExpanded(!isOptionsExpanded)}
           onBlur={() => setIsOptionsExpanded(false)}
         >
-          <span className='ml-2 hidden lg:inline'>
+          <span className='lg:inline max-[375px]:inline hidden ml-2'>
           {currentLanguage ? capitalize(currentLanguage.country) : "Français"}
           </span>
           {currentLanguage ?    <Image
@@ -50,7 +59,7 @@ const LangSwitcher: React.FC = () => {
                       /> : <FiGlobe />}
         </Button>
         {isOptionsExpanded && (
-          <div className='absolute right-0 mt-2 w-full origin-top-right rounded-md bg-dropdown shadow-lg'>
+          <div className='right-0 absolute bg-secondary shadow-lg mt-2 rounded-md w-full origin-top-right'>
             <div
               className='py-1'
               role='menu'
@@ -68,14 +77,14 @@ const LangSwitcher: React.FC = () => {
                       onMouseDown={e => {
                         e.preventDefault()
                       }}
-                      className={`flex gap-2 w-full px-4 py-2 text-left text-sm hover:bg-dropdownHover ${
+                      className={`flex gap-2 w-full px-4 py-2 text-left text-sm hover:bg-background-secondary ${
                         pathname === `/${lang.code}`
-                          ? 'bg-selected text-primary hover:bg-selected'
-                          : 'text-secondary'
+                          ? 'font-bold text-white hover:text-primary hover:bg-background-secondary'
+                          : 'text-white hover:text-primary'
                       }`}
                     >
                       <Image width={20} height={20} src={lang.flag} alt={lang.country} />
-                      <span className={`hidden lg:inline`}>{capitalize(lang.country)}</span>
+                      <span className={`max-[375px]:inline hidden lg:inline`}>{capitalize(lang.country)}</span>
                     </button>
                   </Link>
                 )
