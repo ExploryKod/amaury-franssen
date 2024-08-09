@@ -5,7 +5,6 @@ import ImageContainer from './ImageContainer'
 import GithubIcon from '/public/github/github-simple.svg'
 import websiteIcon from '/public/globe.svg'
 import { projects } from '@/src/data/projects'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 interface ProjectProps {

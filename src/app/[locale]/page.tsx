@@ -1,13 +1,13 @@
 import { useTranslations } from 'next-intl'
-import {Button} from './components/Button'
+import {Button} from '@/src/components/Button'
 import Image from 'next/image'
 import profilePic from '@/public/corporate/avatar_me.webp'
-import ImageContainer from './components/ImageContainer'
-import { Projects } from './components/Projects'
+import ImageContainer from '@/src/components/ImageContainer'
+import { Projects } from '@/src/components/Projects'
 import GithubIcon from '@/src/app/icons/github'
 import LinkedinIcon from '@/src/app/icons/linkedin-official.webp'
-import { SKills } from './components/Skills'
-import { Modal } from "@/src/app/[locale]/components/modals/Modal" 
+import { SKills } from '@/src/components/Skills'
+import { Modal } from "@/src/components/modals/Modal" 
 
 export interface BreakPoints {
   [key: string]: string;

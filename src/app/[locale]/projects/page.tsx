@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl'
-import { Projects } from '@/src/app/[locale]/components/Projects'
+import { Projects } from '@/src/components/Projects'
 
 
 export interface BreakPoints {

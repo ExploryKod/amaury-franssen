@@ -1,12 +1,19 @@
 import { useTranslations } from 'next-intl'
 import { projects } from '@/src/data/projects'
 import type { Project } from '@/src/types/project/project'
-import NotFoundWithProps from "@/src/app/[locale]/components/utilities/NotFoundWithProps" 
+import NotFoundWithProps from "@/src/components/utilities/NotFoundWithProps" 
 import Image from 'next/image'
-import ImageContainer from '@/src/app/[locale]/components/ImageContainer'
+import ImageContainer from '@/src/components/ImageContainer'
 import GithubIcon from '/public/github/github-simple.svg'
 import websiteIcon from '/public/globe.svg'
-import { SimpleLink } from '@/src/app/[locale]/components/Button'
+import { SimpleLink } from '@/src/components/Button'
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+  } from "@/src/components/ui/accordion"
+  
 
 interface ProjectPage {
     params: { [key: string]: string | undefined },
@@ -32,7 +39,9 @@ export default function ProjectPage({
     if(!currentProject) {
         return <NotFoundWithProps  locale={locale} color="button" text=""/>  
     }
-    const { id, category, title, technos, website, github, image, year, catchPhrase, projectIntro } = {...currentProject}
+    const { id, category, title, technos, website, github, image, year, content } = {...currentProject}
+
+    console.log(content)
 
     const squares = [{id:1, color:'bg-buttonxlight'}, {id:2, color:'bg-buttonlight'}, {id:3, color:'bg-button'}]
 
@@ -55,7 +64,7 @@ export default function ProjectPage({
             <div className="bg-primary px-4 py-2 rounded-lg sm:w-3/4">
                 <div className="">
                     <h1 className="my-2 text-3xl text-background">{title}</h1>
-                    <p className="my-2 text-background text-lg">{tp(`${catchPhrase}`)}</p>
+                    <p className="my-2 text-background text-lg">{content[locale].catchPhrase}</p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4 flex-wrap mt-5">
                 
@@ -131,7 +140,7 @@ export default function ProjectPage({
             <div className={`max-w-[80%] w-full mx-auto flex flex-col`}>
 
                 <div className="mt-5">
-                    <p className="text-lg text-primary">{tp('projectIntro')}</p>
+                    <p className="text-lg text-primary">{tp(`${content[locale].intro}`)}</p>
                 </div>
 
                 <div className="flex min-w-[50%]">
