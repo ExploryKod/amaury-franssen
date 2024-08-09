@@ -88,6 +88,7 @@ export const projects: Partial<Project[] | null> = [
         description: '', 
         image: {url: AnoriaFront, alt:" "},  
         technos: [...anoriaStack],
+        slug: "city-builder",
         year: "2024",
         content : {
             en: {
@@ -123,6 +124,7 @@ export const projects: Partial<Project[] | null> = [
         website: "https://eco-mirror.vercel.app/", 
         github:"https://github.com/ExploryKod/Eco-Mirror", 
         title:"Eco Mirror", 
+        slug: "eco-mirror",
         description: '', 
         image: {url: ecoMirrorFront, alt:" "},  
         technos: [...ecoMirrorStack],
@@ -134,6 +136,7 @@ export const projects: Partial<Project[] | null> = [
         website: "https://charming-marzipan-2d510b.netlify.app/", 
         github:"https://github.com/ExploryKod/Insure-landing-page-challenge", 
         title:'Landing Page', 
+        slug: "landing-page",
         description: '', 
         image: {url: insureFront, alt:" "},  
         technos: [...insureStack],
@@ -145,6 +148,7 @@ export const projects: Partial<Project[] | null> = [
         website: "https://happy-form-mvc.onrender.com/", 
         github:"https://github.com/ExploryKod/Happy_form_MVC", 
         title:'Happy Form', 
+        slug: "happy-form",
         description: '', 
         image: {url: happyFormFront, alt:" "},  
         technos: [...happyFormStack],
