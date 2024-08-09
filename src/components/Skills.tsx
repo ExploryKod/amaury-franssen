@@ -74,7 +74,7 @@ return (
 
             (<div className={`mx-auto w-[400px] flex flex-col gap-4 items-center justify-center`}>
               <div className="py-2">
-                <h1 className="text-3xl text-center text-white">Cas d'usage sélectionné pour {selectedSkill.text}</h1>
+                <h1 className="text-3xl text-center text-white">Cas d&apos; usage sélectionné pour {selectedSkill.text}</h1>
                 <h3 className="mt-3 text-2xl text-center text-white">{selectedSkill.example && selectedSkill.example.title}</h3>
               </div>
               <ImageContainer 
