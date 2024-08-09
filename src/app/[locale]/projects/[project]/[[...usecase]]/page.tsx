@@ -140,7 +140,7 @@ export default function ProjectPage({
             <div className={`max-w-[80%] w-full mx-auto flex flex-col`}>
 
                 <div className="mt-5">
-                    <p className="text-lg text-primary">{tp(`${content[locale ? locale : "fr"].intro}`)}</p>
+                    <p className="text-lg text-primary">{content[locale ? locale : "fr"].intro}</p>
                 </div>
 
                 <div className="flex min-w-[50%]">
