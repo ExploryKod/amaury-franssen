@@ -1,5 +1,5 @@
 'use client'
-import { capitalize } from '@/lib/utils'
+import { capitalize } from '@/src/lib/utils'
 import { useTranslations } from 'next-intl'
 import { useTheme } from 'next-themes'
 import { useEffect, useRef, useState } from 'react'

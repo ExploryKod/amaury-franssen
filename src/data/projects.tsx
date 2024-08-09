@@ -19,7 +19,7 @@ import html5Img from '/public/skills/html-5.svg'
 
 // Types
 import type { ImageContainer, Project } from '../types/project/project'
-import { useTranslations } from 'next-intl'
+
 
 const foodcarStack:ImageContainer[] = [
     {id:1, url: reactIcon, alt: 'React Js'},
@@ -55,7 +55,6 @@ export const projects: Partial<Project[] | null> = [
     {
         id:1,
         category: 'Personnel', 
-        catchPhrase: 'catch',
         website: "https://gleeful-sorbet-733e50.netlify.app", 
         github: "https://github.com/ExploryKod/Foodcare", 
         title:"Foodcare", 
@@ -65,7 +64,20 @@ export const projects: Partial<Project[] | null> = [
         year: "2022",
         slug: "foodcare",
         usecases: {javascript: "javascript"},
-        projectIntro: "projectIntro"
+        content : {
+            en: {
+                catchPhrase: "Make purchasing food a healthy and ethical habit",
+                intro: "This project is my first challenge using React Js library"
+              },
+            fr: {
+                catchPhrase: "Integrer l' équilibre alimentaire et écologique à l' acte d' achat",
+                intro: "Ce projet m'a permis de me confronter pour la première fois avec la librairie React JS en créant un projet personnel."
+              },
+            es: {
+                catchPhrase: "Integrar el equilibrio alimentario y ecológico en la compra",
+                intro: "Este proyecto me permitió por primera vez confrontar con React JS biblioteca creando un proyecto personal."
+              }
+        }
     },
     {   
         id:2,
@@ -76,7 +88,21 @@ export const projects: Partial<Project[] | null> = [
         description: '', 
         image: {url: AnoriaFront, alt:" "},  
         technos: [...anoriaStack],
-        year: "2024"
+        year: "2024",
+        content : {
+            en: {
+                catchPhrase: "Mon défi: utiliser Three JS pour construire un jeu de stratégie.",
+                intro: "intro_en"
+              },
+            fr: {
+                catchPhrase: "Mon défi: utiliser Three JS pour construire un jeu de stratégie.",
+                intro: "J'ai toujours aimé jouer aux city builder de type Civilization ou plus anciennement Pharaon, je décide donc de débuter sur Three JS en créant un mini city builder avec des fonctionnalités minimales. Ce fut une bonne initiation afin de poser les bases dans l'usage de Three JS. Ce fut un plaisir mais si je devais vraiment créer un city builder j'opterai pour les technologies plus adapté comme Unity (C#), Godot, Unreal Engine ou encore Phaser Js"
+              },
+            es: {
+                catchPhrase: "",
+                intro: ""
+              }
+        }
     },
     {
         id:3,
@@ -89,7 +115,7 @@ export const projects: Partial<Project[] | null> = [
         technos: [...catStack],
         year: "2024",
         slug: "cat-talks",
-        usecases: {typescript: "typescript", websockets: "websockets", golang:"golang"}
+        usecases: {typescript: "typescript", websockets: "websockets", golang:"golang"},
     },
     {
         id:4,
@@ -100,7 +126,7 @@ export const projects: Partial<Project[] | null> = [
         description: '', 
         image: {url: ecoMirrorFront, alt:" "},  
         technos: [...ecoMirrorStack],
-        year: "2022"
+        year: "2022",
     },
     {
         id:5,
@@ -111,7 +137,7 @@ export const projects: Partial<Project[] | null> = [
         description: '', 
         image: {url: insureFront, alt:" "},  
         technos: [...insureStack],
-        year: "2022"
+        year: "2022",
     },
     {
         id:6,
@@ -122,6 +148,6 @@ export const projects: Partial<Project[] | null> = [
         description: '', 
         image: {url: happyFormFront, alt:" "},  
         technos: [...happyFormStack],
-        year: "2022"
+        year: "2022",
     }
   ]  

@@ -10,10 +10,27 @@ export interface Usecases {
  [key: string]: string
 }
 
+export type ProjectContent = {
+  en: {
+    catchPhrase: string,
+    intro: string,
+    [key: string]: string
+  },
+  fr: {
+    catchPhrase: string,
+    intro: string,
+    [key: string]: string
+  },
+  es: {
+    catchPhrase: string,
+    intro: string,
+    [key: string]: string
+  }
+}
+
 export type Project = {
   id?: number
   description?: string
-  catchPhrase?: string
   image?: ImageContainer
   technos: ImageContainer[] | []
   website?: string
@@ -25,5 +42,6 @@ export type Project = {
   year?: string
   slug?: string
   usecases?: Usecases
-  projectIntro?: any
+  content?: projectContent
 } 
+

@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@/src/app/[locale]/components/ThemeProvider'
+import { ThemeProvider } from '@/src/components/ThemeProvider'
 import type { Metadata } from 'next'
 import {
   AbstractIntlMessages,
@@ -7,10 +7,10 @@ import {
 } from 'next-intl'
 import { Inter, Rubik, Space_Grotesk } from 'next/font/google'
 import NextTopLoader from 'nextjs-toploader'
-import { Header } from '@/src/app/[locale]/components/layouts/Header'
+import { Header } from '@/src/components/layouts/Header'
 import './globals.css'
-import { Footer } from './components/layouts/Footer'
-import { BreadCrumbs } from './components/utilities/breadcrumbs/breadcrumbs'
+import { Footer } from '../../components/layouts/Footer'
+import { BreadCrumbs } from '../../components/utilities/breadcrumbs/breadcrumbs'
 
 const inter = Inter({
   subsets: ['latin'],
