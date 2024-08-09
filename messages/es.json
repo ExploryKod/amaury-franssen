@@ -30,5 +30,13 @@
   "Défi Frontend mentor": "Reto",
   "Retour": "Volver",
   "Home": "Inicio",
-  "other_icons": "Otras iconos:"
+  "other_icons": "Otras iconos:",
+
+  "projectPage": {
+    "catch": "Integrar el equilibrio alimentario y ecológico en la compra",
+    "Lien vers le site": "Website",
+    "Voir le repository": "Repository",
+    "projectIntro": "Este proyecto me permitió por primera vez confrontar con React JS creando un proyecto personal.",
+    "Mon apprentissage:": "Lo que aprendí : "
+  }
 }

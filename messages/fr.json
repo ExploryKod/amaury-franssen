@@ -30,6 +30,16 @@
   "Formation": "Formation",
   "Défi Frontend mentor": "Défi",
   "Retour": "Retour",
-  "Homepage": "Accueil",
-  "other_icons": "Autres icones:"
+  "Home": "Accueil",
+  "other_icons": "Autres icones:",
+
+  "projectPage": {
+    "catch": "Integrer l' équilibre alimentaire et écologique à l' acte d' achat",
+
+    "Lien vers le site": "Lien vers le site",
+    "Voir le repository": "Voir le repository",
+    "projectIntro": "Ce projet m'a permis de me confronter pour la première fois avec React JS en créant un projet personnel.",
+    "Mon apprentissage:": "Mes réalisations : "
+  }
+
 }

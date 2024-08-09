@@ -1,6 +1,7 @@
 'use client';
 
 import { Children, useState, type ReactNode, useMemo } from 'react';
+import { House } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import BreadCrumbIcon from '@/src/app/icons/breacrumbIcon'
@@ -21,18 +22,21 @@ type BreadcrumbsProps = {
 
 type BreadcrumbItemProps = {
   children: ReactNode;
+  classNames?: string;
   href: string;
 }
 
 const BreadcrumbsItem = ({
   children,
+  classNames = '',
   href,
   ...props
 }: BreadcrumbItemProps) => {
   return (
-    <li {...props} className="group">
-      <Link href={href} passHref>
-        {children}
+    <li {...props} className={`group flex items-center justify-center ${classNames}`}>
+      <Link href={href} passHref className="inline-flex justify-center items-center">
+        <div className="inline-flex justify-end items-end gap-2">{children}</div>
+  
       </Link>
     </li>
   );
@@ -86,7 +90,10 @@ export const BreadCrumbs = ({
   return (
     <>
       <BreadcrumbsContainer>
-        {(withHome && paths !== `/${locale}`) && <BreadcrumbsItem href="/"><span className="linear-anim-link text-button cursor-pointer linear-color-primary">{t('Home')}</span></BreadcrumbsItem>}
+        {(withHome && paths !== `/${locale}`) && <BreadcrumbsItem href="/">
+            <House size={24} color="var(--button)" />
+            <span className="linear-anim-link text-button cursor-pointer linear-color-primary">{t('Home')}</span>
+          </BreadcrumbsItem>}
         {pathItems.filter(item => item.path !== locale).map((item) => (
           <BreadcrumbsItem key={item.path} href={`/${item.path}`}>
             <span className="linear-anim-link text-button cursor-pointer linear-color-primary">{item.name === 'loading'

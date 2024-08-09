@@ -19,10 +19,11 @@ import html5Img from '/public/skills/html-5.svg'
 
 // Types
 import type { ImageContainer, Project } from '../types/project/project'
+import { useTranslations } from 'next-intl'
 
 const foodcarStack:ImageContainer[] = [
     {id:1, url: reactIcon, alt: 'React Js'},
-    {id:1, url: nodeImg, alt: 'Node Js'},
+    {id:2, url: nodeImg, alt: 'Node Js'},
 ]
 
 const anoriaStack:ImageContainer[] = [
@@ -31,7 +32,7 @@ const anoriaStack:ImageContainer[] = [
 
 const catStack:ImageContainer[] = [
     {id:1, url: reactIcon, alt: 'React Js'},
-    {id:1, url: GoImg, alt: 'Golang'},
+    {id:2, url: GoImg, alt: 'Golang'},
 ]
 
 const ecoMirrorStack:ImageContainer[] = [
@@ -46,14 +47,15 @@ const insureStack:ImageContainer[] = [
 const happyFormStack:ImageContainer[] = [
     {id:1, url: css3Img, alt: 'CSS3'},
     {id:2, url: html5Img, alt: 'HTML5'},
-    {id:2, url: phpImg, alt: 'PHP7.4'},
-    {id:2, url: JavaScriptImg, alt: 'JavaScript'},
+    {id:3, url: phpImg, alt: 'PHP7.4'},
+    {id:4, url: JavaScriptImg, alt: 'JavaScript'},
 ]
 
 export const projects: Partial<Project[] | null> = [
     {
         id:1,
         category: 'Personnel', 
+        catchPhrase: 'catch',
         website: "https://gleeful-sorbet-733e50.netlify.app", 
         github: "https://github.com/ExploryKod/Foodcare", 
         title:"Foodcare", 
@@ -62,7 +64,8 @@ export const projects: Partial<Project[] | null> = [
         technos: [...foodcarStack],
         year: "2022",
         slug: "foodcare",
-        usecases: {javascript: "javascript"}
+        usecases: {javascript: "javascript"},
+        projectIntro: "projectIntro"
     },
     {   
         id:2,

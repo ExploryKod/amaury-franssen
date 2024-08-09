@@ -11,6 +11,7 @@ interface LinkProps extends React.LinkHTMLAttributes<HTMLElement> {
   children: React.ReactNode
   variant?: 'primary' | 'secondary' | 'light' | 'lightSwipe'
   size?: 'small' | 'medium' | 'large'
+  target?: '_blank' | ''
   rounded?: boolean
   url: string
 }
@@ -57,6 +58,7 @@ export const SimpleLink: React.FC<LinkProps> = ({
   size = 'medium',
   rounded = false,
   className = "",
+  target="_blank",
   ...props
 
 }) => {
@@ -64,6 +66,6 @@ export const SimpleLink: React.FC<LinkProps> = ({
   const LinkStyles = `${baseStyles} ${rounded? 'rounded-full' : ''} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`
 
   return (
-    <a title={title} href={`${url}`} className={LinkStyles} {...props}>{children}</a>
+    <a target={target} title={title} href={`${url}`} className={LinkStyles} {...props}>{children}</a>
   )
 }

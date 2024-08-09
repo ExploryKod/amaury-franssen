@@ -33,8 +33,15 @@ const config = {
         'button-text': 'var(--button-text)',
         'text-secondary': 'var(--text-secondary)',
         'background-secondary': 'var(--background-secondary)',
-        secondary: {DEFAULT: 'var(--secondary)', '700': 'rgba(9, 127, 165, 0.8)'},
-        button: 'var(--button)',
+        secondary: {
+          DEFAULT: 'var(--secondary)', 
+          '700': 'rgba(9, 127, 165, 0.8)'
+        },
+        button: {
+          DEFAULT: 'var(--button)'
+        },
+        buttonlight: 'var(--button-light)',
+        buttonxlight: 'var(--button-xlight)',
         selected: 'var(--selected)',
         dropdown: 'var(--dropdown)',
         dropdownHover: 'var(--dropdown-hover)',

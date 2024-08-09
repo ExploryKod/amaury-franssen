@@ -15,10 +15,11 @@ interface ProjectPage {
 
 
 
-export default function ProjectsPage({
+export default function ProjectPage({
     params,
     searchParams,
 }: ProjectPage) {
+    const tp = useTranslations('projectPage')
     const t = useTranslations('')
     console.log(params)
     console.log(searchParams)
@@ -31,17 +32,19 @@ export default function ProjectsPage({
     if(!currentProject) {
         return <NotFoundWithProps  locale={locale} color="button" text=""/>  
     }
-    const { id, category, title, technos, website, github, image } = {...currentProject}
+    const { id, category, title, technos, website, github, image, year, catchPhrase, projectIntro } = {...currentProject}
+
+    const squares = [{id:1, color:'bg-buttonxlight'}, {id:2, color:'bg-buttonlight'}, {id:3, color:'bg-button'}]
 
   return (
     
     <div className="relative px-4 min-h-[100vh]">
 
-        <section id="banner" className='flex gap-3 mx-auto my-2 md:py-[18px] w-full max-w-screen-2xl'>
-            <div className="w-1/3">
+        <section id="banner" className='flex flex-col sm:flex-row gap-3 mx-auto my-2 md:py-[18px] w-full max-w-screen-2xl'>
+            <div className="sm:w-1/3">
                 {image && (image.url && image.alt) ?
                     (<ImageContainer classNames="
-                        max-w-[100%] bg-white w-full p-4 img-rounded-lg rounded-lg">
+                        flex items-center justify-center max-w-full h-full bg-white w-full p-4 img-rounded-lg rounded-lg">
                         <Image
                         src={image.url}
                         alt={image.alt}
@@ -49,33 +52,33 @@ export default function ProjectsPage({
                     </ImageContainer>) 
                 : null}
             </div>   
-            <div className="bg-primary px-4 py-2 rounded-lg w-3/4">
-                <div>
+            <div className="bg-primary px-4 py-2 rounded-lg sm:w-3/4">
+                <div className="">
                     <h1 className="my-2 text-3xl text-background">{title}</h1>
-                    <p className="my-2 text-background text-lg">Integrer l&#39; équilibre alimentaire et écologique à l&#39; acte d&#39; achat</p>
+                    <p className="my-2 text-background text-lg">{tp(`${catchPhrase}`)}</p>
                 </div>
-                <div className="flex gap-4 wrap">
+                <div className="flex flex-col sm:flex-row gap-4 flex-wrap mt-5">
                 
                     {website && website.length > 0 ?
-                    (<SimpleLink className="inline-flex justify-center gap-2" url={website} variant={'secondary'} rounded>
+                    (<SimpleLink target={"_blank"} className="size-fit inline-flex justify-center gap-2" url={website} variant={'lightSwipe'} rounded>
        
                         <Image
                             src={websiteIcon}
                             alt={""}
                         />
-                        <span>Lien vers le site</span>
+                        <span>{tp('Lien vers le site')}</span>
 
                      
             
                     </SimpleLink>) : null}
 
                     {github && github.length > 0 ?
-                    (<SimpleLink className="inline-flex justify-center gap-2" url={github} variant={'lightSwipe'} rounded>
+                    (<SimpleLink className="size-fit inline-flex justify-center gap-2" url={github} variant={'lightSwipe'} rounded>
                         <Image
                             src={GithubIcon}
                             alt={""}
                         />
-                        <span>Voir le repository</span>
+                        <span>{tp('Voir le repository')}</span>
                     </SimpleLink>) : null}
                     
                 </div>
@@ -96,13 +99,15 @@ export default function ProjectsPage({
                     "hidden"}`}>
 
             <div className="flex gap-4 p-4">
-         
+            <div className="bg-background px-4 py-2 rounded-xl font-bold text-sm text-primary">
+                 <span>{year}</span>
+                 </div>
+                 <div className="bg-button px-4 py-2 rounded-xl font-bold text-sm text-white">
+                    <span>{t(`${category}`)}</span>
                 </div>
-
-            <div className="bg-button my-2 px-4 py-2 rounded-xl font-bold text-sm text-white">
-        
-                <span>{t(`${category}`)}</span>
             </div>
+
+      
 
         
 
@@ -123,23 +128,27 @@ export default function ProjectsPage({
             </div>
             </div>   
             
-            <div className={`max-w-[80%] w-full mx-auto flex justify-between gap-4`}>
+            <div className={`max-w-[80%] w-full mx-auto flex flex-col`}>
 
-          
+                <div className="mt-5">
+                    <p className="text-lg text-primary">{tp('projectIntro')}</p>
+                </div>
 
-                <div className="flex justify-center min-w-[50%] grow">
-                    
-                    <div>
-                      
-                    </div> 
-
-                </div>    
-
-
+                <div className="flex min-w-[50%]">
+                    <div className="inline-flex items-center gap-4">
+                        {squares.map(square => {
+                            return (<span key={square.id} className={`my-5 h-4 w-4 ${square.color}`}></span>)
+                        })}
+                        <h3 className="my-5 text-2xl font-bold">{tp('Mon apprentissage:')}</h3> 
+                    </div>
+                 
+                   <ul>
+                    <li></li>
+    
+                   </ul>
+                </div>   
+                <div></div>
             </div>
-        
-      
-
         </div> 
     </div>
   )

@@ -31,7 +31,7 @@ return (
         <div   className="relative group/card"       key={skill.id} 
         onMouseEnter={() => setHoveredSkillId(skill.id.toString())}
         onMouseLeave={() => setHoveredSkillId("uneffect")}>
-                      <Link href={isExample ? `/${locale}/${skill.example && skill.example.slug}/${skill.text.toLowerCase()}`: "/#skills"} target={isExample ? "_blank" : undefined}>
+                      <Link href={isExample ? `/${locale}/projects/${skill.example && skill.example.slug}/${skill.text.toLowerCase()}`: "/#skills"} target={isExample ? "_blank" : undefined}>
                       
                       <div className={`
                         top-0 right-0 z-lg absolute flex 
@@ -39,7 +39,7 @@ return (
                         bg-white m-2 rounded-lg  ${hoveredSkillId === skill.id.toString() && isExample ? "opacity-1": "opacity-0"}
                         transition-opacity duration-150 ease-in-out w-[15px] h-[15px]`}>
                           <SquareArrowOutUpRight size={15} color={"var(--button)"}/>
-                        </div>
+                        </div> 
                           <ImageContainer 
                           isContain={true} classNames={`
                               ${skill.id.toString() === hoveredSkillId ? "hovered-skill": ""}

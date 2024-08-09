@@ -26,6 +26,8 @@ const LangSwitcher = ({scrolled, classNames="flex justify-center items-center"}:
   const pathname = usePathname()
   const urlSegments = useSelectedLayoutSegments()
 
+  console.log(urlSegments)
+
   const [isOptionsExpanded, setIsOptionsExpanded] = useState(false)
 
   const options: Option[] = [

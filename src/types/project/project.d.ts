@@ -13,6 +13,7 @@ export interface Usecases {
 export type Project = {
   id?: number
   description?: string
+  catchPhrase?: string
   image?: ImageContainer
   technos: ImageContainer[] | []
   website?: string
@@ -24,4 +25,5 @@ export type Project = {
   year?: string
   slug?: string
   usecases?: Usecases
+  projectIntro?: any
 } 

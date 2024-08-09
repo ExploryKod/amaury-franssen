@@ -57,7 +57,7 @@ export const Header: FC<Props> = ({ locale }) => {
 
     return (
         <>
-        <header className={`max-[375px]:mb-5  h-[96px] ${scrolled && !isMenuOpen ? "bg-secondary-700" : "bg-background"} transition duration-400 ease-in top-0 z-max fixed p-4 w-full`}>
+        <header className={`max-[375px]:mb-5  h-[96px] ${scrolled && !isMenuOpen ? "bg-secondary" : "bg-background"} transition duration-400 ease-in top-0 z-max fixed p-4 w-full`}>
           <nav className={`flex justify-between items-center gap-4 mx-auto max-w-screen-2xl max-container`}>
             <a href="/" className={`px-4 max-[375px]:w-[75%]
             ${scrolled ? "rounded-lg bg-white hover:opacity-75": "bg-transparent"} font-bold text-3xl`}>
@@ -73,9 +73,9 @@ export const Header: FC<Props> = ({ locale }) => {
             <div className="lg:hidden max-[375px]:hidden">
               <LangSwitcher />
             </div>
-              <ul className={`justify-end px-16 py-2  ${scrolled ? "bg-secondary rounded-full" : "bg-transparent"} flex xl:justify-center items-center gap-16 max-lg:hidden`}>
+              <ul className={`justify-end px-16 py-2  flex xl:justify-center items-center gap-16 max-lg:hidden`}>
                 {navLinks.map((item) => (
-                  <li key={item.label} className={`${scrolled ? "bg-secondary" : "bg-transparent"} whitespace-nowrap`}>
+                  <li key={item.label} className={`whitespace-nowrap`}>
                     <a
                       href={item.href}
                       className={`linear-anim-link ${scrolled ? "text-white":"text-button"} cursor-pointer ${scrolled ? "linear-color-light" : "linear-color-primary"}`}
