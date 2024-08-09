@@ -28,6 +28,7 @@ export default function ProjectPage({
 }: ProjectPage) {
     const tp = useTranslations('projectPage')
     const t = useTranslations('')
+    let isContentDefined:boolean = false;
     console.log(params)
     console.log(searchParams)
     
@@ -44,6 +45,11 @@ export default function ProjectPage({
     console.log(content)
 
     const squares = [{id:1, color:'bg-buttonxlight'}, {id:2, color:'bg-buttonlight'}, {id:3, color:'bg-button'}]
+
+    if(content) {
+        isContentDefined = locale ? locale in content : false
+    }
+    
 
   return (
     
@@ -136,8 +142,8 @@ export default function ProjectPage({
                 </div>) : null}
             </div>
             </div>   
-            
-            <div className={`max-w-[80%] w-full mx-auto flex flex-col`}>
+            {isContentDefined ? 
+            (<div className={`max-w-[80%] w-full mx-auto flex flex-col`}>
 
                 <div className="mt-5">
                     <p className="text-lg text-primary">{content[locale ? locale : "fr"].intro}</p>
@@ -157,7 +163,7 @@ export default function ProjectPage({
                    </ul>
                 </div>   
                 <div></div>
-            </div>
+            </div>): null}
         </div> 
     </div>
   )
